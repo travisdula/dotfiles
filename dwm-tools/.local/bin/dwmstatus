@@ -1,0 +1,14 @@
+#!/bin/sh
+printstats(){
+	printf "SSD: %s " "$(df | grep "/$" | awk '{print $5}')"
+	printf "RAM: %s%% " "$(free | sed '2q;d' | awk '{print int((1 - $7 / $2) * 100)}')"
+	printf "VOL: %s " "$(pactl list sinks | grep "Volume: front" | awk '{print $5}')"
+	printf "BRIGHT: %.0f%% " "$(xbacklight -getf)"
+	printf "BAT0: %s%% " "$(cat /sys/class/power_supply/BAT0/capacity)"
+	printf "%s" "$(date +"%A %F %R")"
+}
+while pidof dwm > /dev/null
+do
+        xsetroot -name "$(printstats)"
+	sleep 2
+done

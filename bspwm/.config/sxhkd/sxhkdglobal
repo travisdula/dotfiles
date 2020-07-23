@@ -1,0 +1,21 @@
+#
+#XF86 keys
+#
+
+# XF86MyComputer
+# XF86HomePage
+# XF86Calculator
+# XF86AudioMedia
+# XF86AudioStop
+XF86AudioPrev
+	playerctl previous
+XF86AudioNext
+	playerctl next
+XF86AudioPlay
+	playerctl play-pause
+XF86AudioMute
+	amixer -q set Master toggle
+XF86AudioRaiseVolume
+	amixer -q set Master 5%+ unmute
+XF86AudioLowerVolume
+	amixer -q set Master 5%- unmute

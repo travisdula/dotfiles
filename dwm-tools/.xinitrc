@@ -1,0 +1,3 @@
+onwmstart
+dwmstatus &
+exec dwm

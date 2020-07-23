@@ -10,4 +10,4 @@ alias ls='ls --color=auto'
 alias ccat='pygmentize'
 alias y='yay'
 PS1='[\W]\$ '
-#PATH="$HOME/.local/bin:$PATH"
+PATH="$HOME/.local/bin:$PATH"

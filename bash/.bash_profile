@@ -1,7 +1,7 @@
-#
+#!/bin/bash
 # ~/.bash_profile
 #
 
-[[ -f ~/.bashrc ]] && . ~/.bashrc
+[ -f ~/.bashrc ] && . ~/.bashrc
 export EDITOR=nvim
-export VISUAL=$EDTOR
+export VISUAL=$EDITOR

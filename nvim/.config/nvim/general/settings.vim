@@ -14,7 +14,7 @@ if !exists('g:vscode')
   set splitbelow                          " Horizontal splits will automatically be below
   set splitright                          " Vertical splits will automatically be to the right
   " set t_Co=256                            " Support 256 colors
-  " set termguicolors			  " Use term colors
+  set termguicolors			              " Use term colors
   set conceallevel=0                      " So that I can see `` in markdown files
   set tabstop=4                           " Insert 4 spaces for a tab
   set shiftwidth=4                        " Change the number of space characters inserted for indentation

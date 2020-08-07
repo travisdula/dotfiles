@@ -1,3 +1,3 @@
 onwmstart
 dwmstatus &
-exec dwm
+exec startdwm

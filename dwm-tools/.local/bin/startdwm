@@ -1,0 +1,7 @@
+#!/bin/sh
+# Thanks Arch Wiki!
+while true
+do
+    dwmstatus &
+    dwm 2> ~/.dwm.log
+done

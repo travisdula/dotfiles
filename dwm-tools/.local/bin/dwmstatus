@@ -1,6 +1,7 @@
 #!/bin/sh
 printstats(){
-    printf "SSD: %s RAM: %s%% VOL: %s BRIGHT: %.0f%% BAT: %s%% %s"\
+    printf "WEA: %s SSD: %s RAM: %s%% VOL: %s BRIGHT: %.0f%% BAT: %s%% %s"\
+        "$(curl "wttr.in/dfw?format=%t")"\
         "$(df | grep "/$" | awk '{print $5}')"\
 	    "$(free | sed '2q;d' | awk '{print int((1 - $7 / $2) * 100)}')"\
 	    "$(pactl list sinks | grep "Volume: front" | awk '{print $5}')"\

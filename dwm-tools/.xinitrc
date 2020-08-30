@@ -1,3 +1,4 @@
 onwmstart
 dwmstatus &
-exec startdwm
+# exec startdwm
+exec dbus-launch startdwm

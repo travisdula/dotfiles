@@ -2,7 +2,7 @@
 if [ -e /sys/class/power_supply/BAT? ]; then
     printstats(){
         printf "WEA: %s SSD: %s RAM: %s%% VOL: %s BRIGHT: %.0f%% BAT: %s%% %s"\
-            "$(curl --silent "wttr.in/dfw?format=%t")"\
+            "$(curl --silent "wttr.in/?format=%t")"\
             "$(df | grep "/$" | awk '{print $5}')"\
     	    "$(free | sed '2q;d' | awk '{print int((1 - $7 / $2) * 100)}')"\
     	    "$(pactl list sinks | grep "Volume: front" |head -n1| awk '{print $5}')"\
@@ -13,7 +13,7 @@ if [ -e /sys/class/power_supply/BAT? ]; then
 else
     printstats(){
         printf "WEA: %s SSD: %s RAM: %s%% VOL: %s %s"\
-            "$(curl --silent "wttr.in/dfw?format=%t")"\
+            "$(curl --silent "wttr.in/?format=%t")"\
             "$(df | grep "/$" | awk '{print $5}')"\
     	    "$(free | sed '2q;d' | awk '{print int((1 - $7 / $2) * 100)}')"\
     	    "$(pactl list sinks | grep "Volume: front" |head -n1| awk '{print $5}')"\

@@ -7,6 +7,8 @@ SETUVAR __fish_initialized:3100
 SETUVAR _fish_abbr_gc:git\x20commit
 SETUVAR _fish_abbr_gp:git\x20push
 SETUVAR _fish_abbr_gs:git\x20status
+SETUVAR _fish_abbr_l:exa
+SETUVAR _fish_abbr_ll:exa\x20\x2dhal
 SETUVAR _fish_abbr_n:nvim
 SETUVAR _fish_abbr_y:yay
 SETUVAR _fish_abbr_z:zathura

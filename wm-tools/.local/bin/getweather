@@ -1,0 +1,6 @@
+#!/bin/sh
+while true
+do
+    curl --silent "wttr.in/?format=%t" > "/tmp/weather"
+    sleep 600
+done

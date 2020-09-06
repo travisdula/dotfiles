@@ -1,5 +1,6 @@
 #!/bin/sh
 # starts
+pkill getweather; getweather &
 pkill dunst; dunst &
 pkill picom; picom &
 pkill redshift; redshift -l 33:-97 &

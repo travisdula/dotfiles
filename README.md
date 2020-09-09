@@ -12,6 +12,9 @@ I've used i3, i3-gaps, and xmonad in the past. i3 didn't have gaps, i3-gaps is h
 Consistency and flexibility. It allows me to easily switch what program I use for a given purpose, and it leaves no mystery as to what program is in a given directory.
 Wasted space is not really a concern, as directories themselves take 4K per directory.
 
+## Credits
+* Much of my (Neovim) config comes from and is inspired by [christatmachine](https://github.com/ChristianChiarulli/nvim).
+
 Folder | Programs | Description | Configuration | Status
 --- | --- | --- | --- | ---
 alacritty | Alacritty | Minimal GPU accelerated terminal emulator | Fonts | Good

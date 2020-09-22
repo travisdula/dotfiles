@@ -26,6 +26,6 @@ firefox | Firefox | Web browser | Made to work well with "Tree Style Tabs" and "
 fish | Fish | A good shell, amazing for interactive use | Some abbreviations, vi mode, and an included prompt | Good
 leftwm | LeftWM | A tiling WM written in Rust | vi keys | Good
 nvim | Neovim | A more modern version of Vim, with Lua extension support | Two extensions, some simple settings | Good
-picom | Picom | A compositor with file based configuration | Some transparency | Good
+picom | Picom | A compositor with file based configuration | Some transparency | picom is bloat, use xcompmgr
 wm-tools | N/A | Contains only a script to start programs when I start my WM | Good
 xdg-user-dirs | xdg-user-dirs | Contains some default directories | Good

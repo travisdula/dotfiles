@@ -2,7 +2,7 @@
 # starts
 pkill getweather; getweather &
 pkill dunst; dunst &
-pkill picom; picom &
+pkill xcompmgr; xcompmgr &
 pkill redshift; redshift -l 33:-97 &
 pkill unclutter; unclutter --idle 2 &
 pulseaudio -D &

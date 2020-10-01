@@ -27,5 +27,6 @@ fish | Fish | A good shell, amazing for interactive use | Some abbreviations, vi
 leftwm | LeftWM | A tiling WM written in Rust | vi keys | Good
 nvim | Neovim | A more modern version of Vim, with Lua extension support | Two extensions, some simple settings | Good
 picom | Picom | A compositor with file based configuration | Some transparency | picom is bloat, use xcompmgr
-wm-tools | N/A | Contains only a script to start programs when I start my WM | Good
-xdg-user-dirs | xdg-user-dirs | Contains some default directories | Good
+wm-tools | N/A | Contains only a script to start programs when I start my WM | N/A | Good
+xdg-user-dirs | xdg-user-dirs | Contains some default directories | Lowercase shortened directory names | Good
+zathura | zathura | Minimal PDF viewer | Nord theme, some sensible defaults | Good

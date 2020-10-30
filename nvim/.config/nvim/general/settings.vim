@@ -45,6 +45,11 @@ if !exists('g:vscode')
   " au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
   autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+  " things for TeX and MD
+  au BufNewFile,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.mdwn,*.md  set ft=markdown
+  autocmd FileType markdown :setlocal spell wrap linebreak
+  autocmd FileType tex :setlocal spell wrap linebreak
+
 
   " You can't stop me
   cmap w!! w !sudo tee %

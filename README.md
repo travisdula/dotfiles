@@ -13,7 +13,8 @@ Consistency and flexibility. It allows me to easily switch what program I use fo
 Wasted space is not really a concern, as directories themselves take 4K per directory.
 
 ## Credits
-* Much of my (Neovim) config comes from and is inspired by [christatmachine](https://github.com/ChristianChiarulli/nvim).
+* Much of my Neovim config comes from and is inspired by [christatmachine](https://github.com/ChristianChiarulli/nvim).
+* The same goes for my Firefox config, which is mostly copied from [noib3](https://github.com/noib3/macOS-dotfiles/tree/master/firefox)
 
 Folder | Programs | Description | Configuration | Status
 --- | --- | --- | --- | ---
@@ -22,7 +23,7 @@ bash | Bash | A shell | vi mode, a few aliases | Working, lacking
 bspwm | bspwm, polybar, sxhkd | Window manager - corresponding bar and hotkey daemon included in this folder | Not much more than the defaults | Bar broken, not in use
 dunst | dunst | Notification daemon | A minimal, dark look | Good
 dwm-tools | dwmstatus, startdwm | Status bar, starting loop, and .xinitrc for dwm | Minimal | Good
-firefox | Firefox | Web browser | Made to work well with "Tree Style Tabs" and "Tab Count in Window Title" | Good
+firefox | Firefox | Web browser | Made to work well with "Tree Style Tabs" and "Tab Count in Window Title", more minimal look | Good
 fish | Fish | A good shell, amazing for interactive use | Some abbreviations, vi mode, and an included prompt | Good
 leftwm | LeftWM | A tiling WM written in Rust | vi keys | Good
 nvim | Neovim | A more modern version of Vim, with Lua extension support | Two extensions, some simple settings | Good

@@ -7,4 +7,3 @@ pkill redshift; redshift -l 33:-97 &
 pkill unclutter; unclutter --idle 2 &
 pulseaudio -D &
 xwallpaper --zoom ~/.config/wall.jpg
-wal --theme base16-nord

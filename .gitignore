@@ -1,2 +1,3 @@
 nvim/.config/nvim/plugged/*
 .netrwhist
+nvim/.config/nvim/spell/

@@ -8,10 +8,11 @@ SETUVAR _fish_abbr_b:bat\x20\x2d\x2dtheme\x3dbase16
 SETUVAR _fish_abbr_gc:git\x20commit
 SETUVAR _fish_abbr_gp:git\x20push
 SETUVAR _fish_abbr_gs:git\x20status
-SETUVAR _fish_abbr_l:exa
-SETUVAR _fish_abbr_ll:exa\x20\x2dal
-SETUVAR _fish_abbr_llt:exa\x20\x2dal\x20\x2d\x2dtree
+SETUVAR _fish_abbr_l:exa\x20\x2d\x2dicons
+SETUVAR _fish_abbr_ll:exa\x20\x2dhal\x20\x2d\x2dicons
+SETUVAR _fish_abbr_llt:exa\x20\x2dhal\x20\x2d\x2dtree\x20\x2d\x2dicons
 SETUVAR _fish_abbr_n:nvim
+SETUVAR _fish_abbr_p:python
 SETUVAR _fish_abbr_y:yay
 SETUVAR _fish_abbr_z:zathura
 SETUVAR fish_color_autosuggestion:555\x1ebrblack

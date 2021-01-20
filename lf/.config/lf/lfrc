@@ -1,2 +1,3 @@
 set preview
 set previewer ~/.local/bin/preview
+map Y &echo $f | xclip -i -selection clipboard

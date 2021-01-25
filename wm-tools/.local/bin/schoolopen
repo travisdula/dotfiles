@@ -1,0 +1,9 @@
+#!/bin/fish
+set f (fd --type file . $SEM | rofi -match fuzzy -p "search" -dmenu -i 2> /dev/null)
+if test -z $f
+    echo nothing selected
+else if string match --regex --entire .pdf $f
+    zathura $f &
+else
+    alacritty -e $EDITOR $f &
+end

@@ -3,7 +3,9 @@ set f (fd --type file . $SEM | rofi -match fuzzy -p "search" -dmenu -i 2> /dev/n
 if test -z $f
     echo nothing selected
 else if string match --regex --entire .pdf $f
+    cd (dirname $f)
     zathura $f &
 else
+    cd (dirname $f)
     alacritty -e $EDITOR $f &
 end

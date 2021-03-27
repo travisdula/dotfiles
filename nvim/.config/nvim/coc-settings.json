@@ -1,0 +1,11 @@
+{
+    "coc.preferences.formatOnSaveFiletypes": [
+        "html",
+        "css",
+        "markdown",
+        "json"
+    ],
+    "html.enable": true,
+    "html.format.enable": true,
+    "languageserver": {}
+}

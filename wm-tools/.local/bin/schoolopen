@@ -7,5 +7,5 @@ else if string match --regex --entire .pdf $f
     zathura $f &
 else
     cd (dirname $f)
-    alacritty -e $EDITOR $f &
+    kitty -e $EDITOR $f &
 end

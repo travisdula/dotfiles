@@ -21,10 +21,14 @@ nnoremap <silent> <M-j>    :resize -2<CR>
 nnoremap <silent> <M-k>    :resize +2<CR>
 nnoremap <silent> <M-h>    :vertical resize -2<CR>
 nnoremap <silent> <M-l>    :vertical resize +2<CR>
+
 " Change escape keys
 inoremap jk <Esc>
 inoremap kj <Esc>
+
 " Leader key settings
 let mapleader = "\<Space>"
-autocmd FileType cpp nnoremap <leader>c :!g++ % -ggdb -o %:r <CR>
-autocmd FileType java nnoremap <leader>c :!javac %:r<CR>
+nnoremap <leader>g :Goyo<CR>:<Esc>
+nnoremap <leader>h :noh<CR>:<Esc>
+"autocmd FileType cpp nnoremap <leader>c :!g++ % -ggdb -o %:r <CR>
+"autocmd FileType java nnoremap <leader>c :!javac %:r<CR>

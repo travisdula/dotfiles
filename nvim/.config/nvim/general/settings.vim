@@ -34,9 +34,11 @@ if !exists('g:vscode')
   set shortmess+=c                        " Don't pass messages to |ins-completion-menu|.
   set signcolumn=yes                      " Always show the signcolumn, otherwise it would shift the text each time
   set updatetime=300                      " Faster completion
-  set timeoutlen=100                      " By default timeoutlen is 1000 ms
+  set timeoutlen=500                      " By default timeoutlen is 1000 ms
   set clipboard=unnamedplus               " Copy paste between vim and everything else
   set incsearch
+  set ignorecase
+  set smartcase
   set scrolloff=2                         " Can't scroll to bottom or top of screen
   " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   " set mmp=1300
@@ -50,6 +52,10 @@ if !exists('g:vscode')
   au BufNewFile,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.mdwn,*.md  set ft=markdown
   autocmd FileType markdown :setlocal spell wrap linebreak
   autocmd FileType tex :setlocal spell wrap linebreak
+
+  " Goyo and limelight
+  autocmd! User GoyoEnter Limelight
+  autocmd! User GoyoLeave Limelight!
 
 
   " You can't stop me

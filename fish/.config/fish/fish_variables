@@ -9,7 +9,6 @@ SETUVAR _fish_abbr_gc:git\x20commit
 SETUVAR _fish_abbr_gp:git\x20push
 SETUVAR _fish_abbr_gs:git\x20status
 SETUVAR _fish_abbr_l:exa\x20\x2d\x2dicons
-SETUVAR _fish_abbr_lf:lfcd
 SETUVAR _fish_abbr_ll:exa\x20\x2dhal\x20\x2d\x2dicons
 SETUVAR _fish_abbr_llt:exa\x20\x2dhal\x20\x2d\x2dtree\x20\x2d\x2dicons
 SETUVAR _fish_abbr_n:nvim

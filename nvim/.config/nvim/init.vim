@@ -5,6 +5,7 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'junegunn/goyo.vim' 
 Plug 'junegunn/limelight.vim' 
 Plug 'arcticicestudio/nord-vim' 
+Plug 'airblade/vim-gitgutter' 
 call plug#end()
 source $HOME/.config/nvim/general/settings.vim
 source $HOME/.config/nvim/general/keybinds.vim

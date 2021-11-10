@@ -5,6 +5,12 @@ if test -z $f
 else if string match --regex --entire .pdf $f
     cd (dirname $f)
     zathura $f &
+else if string match --regex --entire .docx $f
+    cd (dirname $f)
+    libreoffice $f &
+else if string match --regex --entire .png $f || string match --regex --entire .png $f
+    cd (dirname $f)
+    sxiv $f &
 else
     cd (dirname $f)
     kitty -e $EDITOR $f &

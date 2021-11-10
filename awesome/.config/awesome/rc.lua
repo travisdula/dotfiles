@@ -334,12 +334,12 @@ globalkeys = gears.table.join(
 )
 
 clientkeys = gears.table.join(
-    -- awful.key({ modkey,           }, "f",
-    --     function (c)
-    --         c.fullscreen = not c.fullscreen
-    --         c:raise()
-    --     end,
-    --     {description = "toggle fullscreen", group = "client"}),
+    awful.key({ modkey, "Shift" }, "f",
+        function (c)
+            c.fullscreen = not c.fullscreen
+            c:raise()
+        end,
+        {description = "toggle fullscreen", group = "client"}),
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,

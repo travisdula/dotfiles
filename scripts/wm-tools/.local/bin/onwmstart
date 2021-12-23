@@ -6,4 +6,4 @@ pkill xcompmgr; xcompmgr &
 pkill redshift; redshift -l 33:-97 &
 pkill unclutter; unclutter --idle 2 &
 pulseaudio -D &
-xwallpaper --zoom ~/.config/wall.jpg
+xwallpaper --daemon --zoom ~/.config/wall.jpg

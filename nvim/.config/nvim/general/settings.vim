@@ -50,8 +50,8 @@ if !exists('g:vscode')
 
   " things for TeX and MD
   au BufNewFile,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.mdwn,*.md  set ft=markdown
-  autocmd FileType markdown :setlocal spell wrap linebreak
-  autocmd FileType tex :setlocal spell wrap linebreak
+  autocmd FileType markdown :setlocal spell linebreak
+  autocmd FileType tex :setlocal spell linebreak
 
   " Goyo and limelight
   autocmd! User GoyoEnter Limelight

@@ -1,0 +1,6 @@
+#!/bin/fish
+cd $SEM
+python -m http.server --directory . &
+while inotifywait -e close_write toc.md */notes/*.md
+    pandoc toc.md */notes/*.md -s --metadata title="notes" -o index.html --mathjax
+end

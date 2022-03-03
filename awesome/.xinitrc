@@ -3,4 +3,8 @@ unclutter -idle 2 &
 flameshot &
 xcompmgr &
 nm-applet &
+blueman-applet &
+caffeine &
+pasystray &
+pulseaudio -D
 exec awesome

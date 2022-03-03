@@ -254,6 +254,8 @@ globalkeys = gears.table.join(
     --          {description = "show main menu", group = "awesome"}),
     awful.key({ modkey,              }, "w", function () awful.spawn("schoolopen") end,
             {description = "launch the school file prompt", group = "launcher"}),
+    awful.key({ modkey,              }, "c", function () awful.spawn("specialchars") end,
+            {description = "launch the special characters prompt", group = "launcher"}),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,

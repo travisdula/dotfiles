@@ -254,8 +254,10 @@ globalkeys = gears.table.join(
     --          {description = "show main menu", group = "awesome"}),
     awful.key({ modkey,              }, "w", function () awful.spawn("schoolopen") end,
             {description = "launch the school file prompt", group = "launcher"}),
-    awful.key({ modkey,              }, "c", function () awful.spawn("specialchars") end,
-            {description = "launch the special characters prompt", group = "launcher"}),
+    awful.key({ modkey,              }, "c", function () awful.spawn("pdfopen") end,
+            {description = "launch the pdfopen prompt", group = "launcher"}),
+    awful.key({ modkey, "Shift"      }, "s", function () awful.spawn("flameshot gui") end,
+            {description = "launch the special screenshot tool", group = "launcher"}),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
@@ -351,7 +353,7 @@ clientkeys = gears.table.join(
     awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
               {description = "move to screen", group = "client"}),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
-              {description = "toggle keep on top", group = "client"})
+              {description = "toggle keep on top", group = "client"}),
     -- awful.key({ modkey,           }, "n",
     --     function (c)
     --         -- The client currently has the input focus, so it cannot be
@@ -359,12 +361,12 @@ clientkeys = gears.table.join(
     --         c.minimized = true
     --     end ,
     --     {description = "minimize", group = "client"}),
-    -- awful.key({ modkey,           }, "m",
-    --     function (c)
-    --         c.maximized = not c.maximized
-    --         c:raise()
-    --     end ,
-    --     {description = "(un)maximize", group = "client"}),
+     awful.key({ modkey, "Shift"  }, "m",
+         function (c)
+             c.maximized = not c.maximized
+             c:raise()
+         end ,
+         {description = "(un)maximize", group = "client"})
     -- awful.key({ modkey, "Control" }, "m",
     --     function (c)
     --         c.maximized_vertical = not c.maximized_vertical

@@ -1,6 +1,6 @@
 #!/bin/fish
 cd $SEM
-set f (fd --type file . $SEM | rofi -match fuzzy -p "search" -dmenu -i 2> /dev/null)
+set f $SEM/(fd --strip-cwd-prefix --base-directory $SEM --type file . | rofi -match fuzzy -p "search" -dmenu -i 2> /dev/null)
 if test -z $f
     echo nothing selected
     exit 1

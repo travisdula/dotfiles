@@ -5,6 +5,5 @@ xcompmgr &
 nm-applet &
 blueman-applet &
 caffeine &
-pasystray &
 pulseaudio -D
 exec awesome

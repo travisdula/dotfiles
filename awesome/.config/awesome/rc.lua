@@ -259,6 +259,42 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"      }, "s", function () awful.spawn("flameshot gui") end,
             {description = "launch the special screenshot tool", group = "launcher"}),
 
+    awful.key({ modkey, "Shift"      }, "b", function () 
+                local matcher = function (c)
+                    return awful.rules.match(c, {class = 'firefox'})
+                end
+                awful.client.run_or_raise('firefox', matcher)
+            end,
+            {description = "run or raise (b)rowser - Firefox", group = "launcher"}),
+    awful.key({ modkey, "Shift"      }, "m", function () 
+                local matcher = function (c)
+                    return awful.rules.match(c, {class = 'Spotify'})
+                end
+                awful.client.run_or_raise('spotify', matcher)
+            end,
+            {description = "run or raise (m)usic - Spotify", group = "launcher"}),
+    awful.key({ modkey, "Shift"      }, "c", function () 
+                local matcher = function (c)
+                    return awful.rules.match(c, {name = 'Discord'})
+                end
+                awful.client.run_or_raise('webdiscord', matcher)
+            end,
+            {description = "run or raise (c)hat - Discord", group = "launcher"}),
+    awful.key({ modkey, "Shift"      }, "e", function () 
+                local matcher = function (c)
+                    return awful.rules.match(c, {name = 'nvim'})
+                end
+                awful.client.run_or_raise("", matcher)
+            end,
+            {description = "run or raise (e)ditor - nvim - does not run", group = "launcher"}),
+    awful.key({ modkey, "Shift"      }, "t", function () 
+                local matcher = function (c)
+                    return awful.rules.match(c, {class = terminal})
+                end
+                awful.client.run_or_raise(terminal, matcher)
+            end,
+            {description = "run or raise (t)erminal", group = "launcher"}),
+
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
               {description = "swap with next client by index", group = "client"}),
@@ -299,7 +335,7 @@ globalkeys = gears.table.join(
               {description = "increase the number of columns", group = "layout"}),
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1, nil, true)    end,
               {description = "decrease the number of columns", group = "layout"}),
-    awful.key({ modkey,           }, "f", function () awful.layout.set(awful.layout.suit.max) end,
+    awful.key({ modkey, "Control" }, "f", function () awful.layout.set(awful.layout.suit.max) end,
               {description = "set to monocle layout", group = "layout"}),
     awful.key({ modkey,           }, "m", function () awful.layout.set(awful.layout.suit.tile)end,
               {description = "set to master layout", group = "layout"}),
@@ -344,7 +380,7 @@ clientkeys = gears.table.join(
             c:raise()
         end,
         {description = "toggle fullscreen", group = "client"}),
-    awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end,
+    awful.key({ modkey,           }, "q",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
@@ -361,7 +397,7 @@ clientkeys = gears.table.join(
     --         c.minimized = true
     --     end ,
     --     {description = "minimize", group = "client"}),
-     awful.key({ modkey, "Shift"  }, "m",
+     awful.key({ modkey, "Control"  }, "m",
          function (c)
              c.maximized = not c.maximized
              c:raise()

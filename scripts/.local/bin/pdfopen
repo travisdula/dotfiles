@@ -1,5 +1,5 @@
 #!/bin/fish
-set f (fd --type file -e pdf . $HOME | rofi -match fuzzy -p "search" -dmenu -i 2> /dev/null)
+set f (fd --type file -e pdf -e epub . $HOME | rofi -match fuzzy -p "search" -dmenu -i 2> /dev/null)
 if test -z $f
     notify-send "pdfopen" "nothing selected"
 else

@@ -8,9 +8,14 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'airblade/vim-gitgutter' 
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
 call plug#end()
+
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 source $HOME/.config/nvim/general/settings.vim
 source $HOME/.config/nvim/general/keybinds.vim
 luafile $HOME/.config/nvim/lua/plug-colorizer.lua
 source $HOME/.config/nvim/plug-config/coc.vim
+
+let g:vim_markdown_frontmatter = 1

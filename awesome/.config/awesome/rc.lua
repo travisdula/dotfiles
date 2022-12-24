@@ -254,46 +254,58 @@ globalkeys = gears.table.join(
     --          {description = "show main menu", group = "awesome"}),
     awful.key({ modkey,              }, "w", function () awful.spawn("schoolopen") end,
             {description = "launch the school file prompt", group = "launcher"}),
-    awful.key({ modkey,              }, "c", function () awful.spawn("pdfopen") end,
-            {description = "launch the pdfopen prompt", group = "launcher"}),
     awful.key({ modkey, "Shift"      }, "s", function () awful.spawn("flameshot gui") end,
             {description = "launch the special screenshot tool", group = "launcher"}),
 
-    awful.key({ modkey, "Shift"      }, "b", function () 
+    awful.key({ modkey, ""           }, "b", function () 
                 local matcher = function (c)
                     return awful.rules.match(c, {class = 'firefox'})
                 end
                 awful.client.run_or_raise('firefox', matcher)
             end,
             {description = "run or raise (b)rowser - Firefox", group = "launcher"}),
-    awful.key({ modkey, "Shift"      }, "m", function () 
+    awful.key({ modkey, ""           }, "m", function () 
                 local matcher = function (c)
                     return awful.rules.match(c, {class = 'Spotify'})
                 end
                 awful.client.run_or_raise('spotify', matcher)
             end,
             {description = "run or raise (m)usic - Spotify", group = "launcher"}),
-    awful.key({ modkey, "Shift"      }, "c", function () 
+    awful.key({ modkey, ""           }, "c", function () 
                 local matcher = function (c)
                     return awful.rules.match(c, {name = 'Discord'})
                 end
                 awful.client.run_or_raise('webdiscord', matcher)
             end,
             {description = "run or raise (c)hat - Discord", group = "launcher"}),
-    awful.key({ modkey, "Shift"      }, "e", function () 
+    awful.key({ modkey, ""           }, "e", function () 
                 local matcher = function (c)
                     return awful.rules.match(c, {name = 'nvim'})
                 end
                 awful.client.run_or_raise("", matcher)
             end,
             {description = "run or raise (e)ditor - nvim - does not run", group = "launcher"}),
-    awful.key({ modkey, "Shift"      }, "t", function () 
+    awful.key({ modkey, ""           }, "t", function () 
                 local matcher = function (c)
                     return awful.rules.match(c, {class = terminal})
                 end
                 awful.client.run_or_raise(terminal, matcher)
             end,
             {description = "run or raise (t)erminal", group = "launcher"}),
+    awful.key({ modkey, ""           }, "n", function () 
+                local matcher = function (c)
+                    return awful.rules.match(c, {class = "obsidian"})
+                end
+                awful.client.run_or_raise("obsidian", matcher)
+            end,
+            {description = "run or raise (n)otes - Obsidian", group = "launcher"}),
+    awful.key({ modkey, ""           }, "r", function () 
+                local matcher = function (c)
+                    return awful.rules.match(c, {class = "Zathura"})
+                end
+                awful.client.run_or_raise("pdfopen", matcher)
+            end,
+            {description = "run pdfopen or raise (r)eader - Zathura", group = "launcher"}),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
@@ -337,7 +349,7 @@ globalkeys = gears.table.join(
               {description = "decrease the number of columns", group = "layout"}),
     awful.key({ modkey, "Control" }, "f", function () awful.layout.set(awful.layout.suit.max) end,
               {description = "set to monocle layout", group = "layout"}),
-    awful.key({ modkey,           }, "m", function () awful.layout.set(awful.layout.suit.tile)end,
+    awful.key({ modkey, "Control" }, "m", function () awful.layout.set(awful.layout.suit.tile)end,
               {description = "set to master layout", group = "layout"}),
     -- awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
     --           {description = "select previous", group = "layout"}),
@@ -355,8 +367,8 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
-              {description = "run prompt", group = "launcher"}),
+    --awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
+    --          {description = "run prompt", group = "launcher"}),
 
     -- awful.key({ modkey }, "x",
     --           function ()

@@ -15,15 +15,15 @@ Some things, such as Firefox and NixOS, have my username hardcoded, so you'll ne
 -   My Neovim config was based on [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)
 -   The same goes for my Firefox config, which is mostly copied from [noib3](https://github.com/noib3/macOS-dotfiles/tree/master/firefox)
 
-| Folder        | Description                                           | Configuration
-|---------------|-------------------------------------------------------|
-| firefox       | Web browser                                           | Minimal appearance
-| fish          | Best shell, amazing for interactive and scripting use | Some abbreviations, vi mode, and an included prompt
-| kitty         | GPU accelerated terminal with ligature support        | Font and theme
-| lf            | Minimal terminal file manager written in go           | Previewer and copying files
-| nixos         | A configurable operating system                       | Previewer and copying files
-| nvim          | Modern version of Vim, with Lua extension support     | Mostly just kickstart.nvim
-| qtile         | Dynamic window manager written in Python              | Nord theme
-| scripts       | Contains several helper scripts                       | N/A
-| xdg-user-dirs | Contains some default directories                     | Lowercase shortened directory names
-| zathura       | Minimal PDF viewer                                    | Nord theme, some sensible defaults
+| Folder        | Description                                           | Configuration                                       |
+|---------------|-------------------------------------------------------|-----------------------------------------------------|
+| firefox       | Web browser                                           | Minimal appearance                                  |
+| fish          | Best shell, amazing for interactive and scripting use | Some abbreviations, vi mode, and an included prompt |
+| kitty         | GPU accelerated terminal with ligature support        | Font and theme                                      |
+| lf            | Minimal terminal file manager written in go           | Previewer and copying files                         |
+| nixos         | A configurable operating system                       | Previewer and copying files                         |
+| nvim          | Modern version of Vim, with Lua extension support     | Mostly just kickstart.nvim                          |
+| qtile         | Dynamic window manager written in Python              | Nord theme                                          |
+| scripts       | Contains several helper scripts                       | N/A                                                 |
+| xdg-user-dirs | Contains some default directories                     | Lowercase shortened directory names                 |
+| zathura       | Minimal PDF viewer                                    | Nord theme, some sensible defaults                  |

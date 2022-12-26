@@ -253,20 +253,28 @@ screens = [
                 widget.Spacer(length=10),
                 #
                 widget.Mpris2(
-                    # max_chars=35,
+                    max_chars=35,
                     display_metadata=["xesam:title", "xesam:artist"],
                     fmt="{} |",
                     playing_text="⏵ {track}",
                     paused_text="⏸ {track}",
                     **alpha_colors,
-                ),  # TODO format not working for mpris
+                ),
                 widget.Volume(emoji=True, **alpha_colors),
-                widget.Bluetooth(**alpha_colors),
+                #widget.Bluetooth(**alpha_colors),
                 widget.Battery(
-                    format="| 🔋 {char} {percent:04.1%} |", **alpha_colors
-                ),  # TODO battery format not working
+                    format="| 🔋 {char} {percent:02.0%} |", **alpha_colors
+                ), 
+                widget.Backlight(
+                    fmt="💡 {} |",
+                    change_command="brightnessctl set {0}%",
+                    step=5,
+                    backlight_name="amdgpu_bl0",
+                    brightness_file="brightness",
+                    **alpha_colors
+                ),
                 widget.Memory(
-                    format="💾 {MemPercent:04.1f}% |",
+                    format="💾 {MemPercent:02.0f}% |",
                     measure_mem="G",
                     mouse_callbacks={
                         "Button1": lambda: qtile.cmd_spawn(SYSTEM_MONITOR)
@@ -274,12 +282,13 @@ screens = [
                     **alpha_colors,
                 ),
                 widget.CPU(
-                    format=" 🖥️ {load_percent:04.1f}% |",
+                    format=" 🖥️ {load_percent:02.0f}% |",
                     mouse_callbacks={
                         "Button1": lambda: qtile.cmd_spawn(SYSTEM_MONITOR)
                     },
                     **alpha_colors,
                 ),
+                #widget.Wttr(**alpha_colors),
                 widget.Clock(
                     format="%Y-%m-%d %A %H:%M",
                     mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(CALENDAR)},

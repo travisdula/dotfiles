@@ -6,7 +6,7 @@ The dotfiles for my GNU/Linux systems
 
 Clone this repo into your home directory, cd into the dotfiles directory that was created, and use GNU Stow on a subdirectory to create symlinks in the proper places.
 
-The `nixos` folder (for NixOS, of course) requires `nixos/configuration.nix` to be symlinked to `/etc/nixos/configuration.nix`.
+The `nixos` folder (for NixOS, of course) requires `nixos/configuration.nix` to be linked to `/etc/nixos/configuration.nix`.
 
 Some things, such as Firefox and NixOS, have my username hardcoded, so you'll need to change that to use this.
 

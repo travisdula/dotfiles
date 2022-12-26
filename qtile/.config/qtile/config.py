@@ -32,12 +32,16 @@ from libqtile.lazy import lazy
 def run_or_raise(app, wm_class):
     def __inner(qtile):
         for window in qtile.windows_map.values():
-            if hasattr(window, "cmd_match") and window.cmd_match(Match(wm_class=wm_class)):
+            if hasattr(window, "cmd_match") and window.cmd_match(
+                Match(wm_class=wm_class)
+            ):
                 qtile.current_screen.set_group(window.group)
                 window.focus(False)
                 return
         qtile.cmd_spawn(app)
+
     return __inner
+
 
 MOD = "mod4"
 TERMINAL = "kitty"
@@ -51,23 +55,23 @@ AUDIO_CONTROL = f"{TERMINAL} -e pulsemixer"
 EDITOR = "nvim"
 IS_TERMINAL_EDITOR = True
 NORD = {
-    0:"#2E3440",
-    1:"#3B4252",
-    2:"#434C5E",
-    3:"#4C566A",
-    3:"#616E88",
-    4:"#D8DEE9",
-    5:"#E5E9F0",
-    6:"#ECEFF4",
-    7:"#8FBCBB",
-    8:"#88C0D0",
-    9:"#81A1C1",
-    10:"#5E81AC",
-    11:"#BF616A",
-    12:"#D08770",
-    13:"#EBCB8B",
-    14:"#A3BE8C",
-    15:"#B48EAD",
+    0: "#2E3440",
+    1: "#3B4252",
+    2: "#434C5E",
+    3: "#4C566A",
+    3: "#616E88",
+    4: "#D8DEE9",
+    5: "#E5E9F0",
+    6: "#ECEFF4",
+    7: "#8FBCBB",
+    8: "#88C0D0",
+    9: "#81A1C1",
+    10: "#5E81AC",
+    11: "#BF616A",
+    12: "#D08770",
+    13: "#EBCB8B",
+    14: "#A3BE8C",
+    15: "#B48EAD",
 }
 
 keys = [
@@ -79,16 +83,24 @@ keys = [
     Key([MOD], "j", lazy.layout.down(), desc="Move focus down"),
     Key([MOD], "k", lazy.layout.up(), desc="Move focus up"),
     Key([MOD], "space", lazy.layout.next(), desc="Move window focus to other window"),
-
     # Moving out of range in Columns layout will create new column.
-    Key([MOD, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
-    Key([MOD, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
+    Key(
+        [MOD, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"
+    ),
+    Key(
+        [MOD, "shift"],
+        "l",
+        lazy.layout.shuffle_right(),
+        desc="Move window to the right",
+    ),
     Key([MOD, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([MOD, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
     Key([MOD, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key([MOD, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
+    Key(
+        [MOD, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"
+    ),
     # Key([MOD, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
     # Key([MOD, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key([MOD, "shift", "control"], "h", lazy.layout.swap_column_left()),
@@ -111,14 +123,20 @@ keys = [
     Key([MOD, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([MOD, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     # Key([MOD], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
-    Key([MOD], "space", lazy.run_extension(extension.DmenuRun(
-        background=NORD[0],
-        foreground=NORD[15],
-        selected_background=NORD[15],
-        selected_foreground=NORD[0],
-    )), desc="Spawn a command using a prompt widget"),
+    Key(
+        [MOD],
+        "space",
+        lazy.run_extension(
+            extension.DmenuRun(
+                background=NORD[0],
+                foreground=NORD[15],
+                selected_background=NORD[15],
+                selected_foreground=NORD[0],
+            )
+        ),
+        desc="Spawn a command using a prompt widget",
+    ),
     Key([MOD, "shift"], "b", lazy.hide_show_bar("top"), desc="toggle bar"),
-
     # run or raise
     # Key([MOD], "b", lazy.function(run_or_raise(BROWSER, BROWSER)), desc="run or raise (b)rowser"),
     # Key([MOD], "m", lazy.function(run_or_raise(MUSIC, MUSIC)), desc="run or raise (m)usic"),
@@ -127,7 +145,7 @@ keys = [
 ]
 
 groups = [Group(i) for i in "123456789"]
-#groups = [Group(name=str(i), layout="max", label=x) for i,x in enumerate(group_icons, start=1)]
+# groups = [Group(name=str(i), layout="max", label=x) for i,x in enumerate(group_icons, start=1)]
 # groups = [
 #     Group( # workspace
 #         name="1",
@@ -185,12 +203,12 @@ layouts = [
     layout.Columns(**layout_defaults),
     # layout.Tile(**layout_defaults),
     # layout.MonadThreeCol(**layout_defaults),
-    layout.Max(margin=[100,550,100,550]),
+    layout.Max(margin=[100, 550, 100, 550]),
 ]
 
 widget_defaults = dict(
     font="mono",
-    fontsize=12,
+    fontsize=13,
     padding=3,
     background=NORD[0],
     foreground=NORD[15],
@@ -198,7 +216,7 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 alpha_colors = {
-    "foreground": NORD[1],
+    "foreground": NORD[0],
     "background": NORD[15],
 }
 beta_colors = {
@@ -211,34 +229,63 @@ screens = [
         top=bar.Bar(
             [
                 widget.GroupBox(
-                    active = NORD[15],
-                    inactive = NORD[10],
-                    this_current_screen_border = NORD[11],
-                    highlight_method = "line",
+                    active=NORD[15],
+                    inactive=NORD[10],
+                    this_current_screen_border=NORD[11],
+                    highlight_method="line",
                     highlight_color=[NORD[0], NORD[0]],
                     center_aligned=True,
                     # fontsize=22, # needed for nerd font icons
                 ),
                 widget.TaskList(
-                    foreground = NORD[0],
-                    border = NORD[15],
-                    fontsize = 12,
-                    unfocused_border = NORD[10],
-                    highlight_method = "block",
+                    foreground=NORD[0],
+                    border=NORD[15],
+                    fontsize=12,
+                    unfocused_border=NORD[10],
+                    highlight_method="block",
                     max_title_width=200,
                     title_width_method="uniform",
-                    icon_size = 15,
+                    icon_size=15,
                     rounded=False,
                 ),
                 widget.Notify(default_timeout=45),
                 widget.Systray(),
                 widget.Spacer(length=10),
-                widget.Mpris2(format='{xesam:title} - {xesam:artist}', **alpha_colors), # TODO format not working for mpris
-                widget.Battery(fmt="| battery {} |", format="battery {char} {percent:2.0%} |", **alpha_colors), # TODO battery format not working
-                widget.Volume(fmt="volume {} |", **alpha_colors),
-                widget.Memory(format="RAM {MemPercent}% |", measure_mem='G', **alpha_colors),
-                widget.CPU(format="CPU {load_percent}% |", **alpha_colors),
-                widget.Clock(format="%Y-%m-%d %A %H:%M", mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(CALENDAR)}, **alpha_colors),
+                #
+                widget.Mpris2(
+                    # max_chars=35,
+                    display_metadata=["xesam:title", "xesam:artist"],
+                    fmt="{} |",
+                    playing_text="⏵ {track}",
+                    paused_text="⏸ {track}",
+                    **alpha_colors,
+                ),  # TODO format not working for mpris
+                widget.Volume(emoji=True, **alpha_colors),
+                widget.Bluetooth(**alpha_colors),
+                widget.Battery(
+                    format="| 🔋 {char} {percent:04.1%} |", **alpha_colors
+                ),  # TODO battery format not working
+                widget.Memory(
+                    format="💾 {MemPercent:04.1f}% |",
+                    measure_mem="G",
+                    mouse_callbacks={
+                        "Button1": lambda: qtile.cmd_spawn(SYSTEM_MONITOR)
+                    },
+                    **alpha_colors,
+                ),
+                widget.CPU(
+                    format=" 🖥️ {load_percent:04.1f}% |",
+                    mouse_callbacks={
+                        "Button1": lambda: qtile.cmd_spawn(SYSTEM_MONITOR)
+                    },
+                    **alpha_colors,
+                ),
+                widget.Clock(
+                    format="%Y-%m-%d %A %H:%M",
+                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(CALENDAR)},
+                    **alpha_colors,
+                ),
+                widget.DF(),
             ],
             24,
         ),
@@ -248,8 +295,15 @@ screens = [
 
 # Drag floating layouts.
 mouse = [
-    Drag([MOD], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
-    Drag([MOD], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
+    Drag(
+        [MOD],
+        "Button1",
+        lazy.window.set_position_floating(),
+        start=lazy.window.get_position(),
+    ),
+    Drag(
+        [MOD], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()
+    ),
     Click([MOD], "Button2", lazy.window.bring_to_front()),
 ]
 

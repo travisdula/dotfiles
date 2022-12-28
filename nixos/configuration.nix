@@ -52,6 +52,8 @@
 
   # Configure keymap in X11
   services = {
+    # Enable the OpenSSH daemon.
+    # openssh.enable = true;
     xserver = {
       layout = "us";
       xkbVariant = "";
@@ -108,6 +110,13 @@
       vimAlias = true;
     };
     fish.enable = true;
+    # Some programs need SUID wrappers, can be configured further or are
+    # started in user sessions.
+    # mtr.enable = true;
+    # gnupg.agent = {
+    #   enable = true;
+    #   enableSSHSupport = true;
+    # };
   };
 
   fonts.fonts = with pkgs; [
@@ -124,62 +133,56 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    # tui
-    neovim
     bat
-    lf
-    pulsemixer
-    htop
-    gotop
-    # cli
+    brightnessctl
+    discord
+    dmenu
     exa
     fd
-    ripgrep
-    wget
-    python
-    pandoc
-    gcc
-    git
-    brightnessctl
-    xclip # needed for nvim unnamedplus clipboard
-    stow
-    # gui
-    sxiv
-    mpv
-    zathura
-    gimp
     firefox
     flameshot
-    qtile
+    gcc
+    gimp
+    git
+    gotop
+    htop
     kitty
-    discord
-    firefox
-    spotify
-    pavucontrol
-    dmenu
+    lf
     libreoffice
+    mpv
+    neovim
+    pandoc
+    pavucontrol
+    pulsemixer
+    python
+    qtile
+    ripgrep
+    signal-desktop
+    spotify
+    stow
+    sxiv
+    texlive.combined.scheme-small
+    unzip
+    wget
+    xclip # needed for nvim unnamedplus clipboard
+    zathura
+    zip
+    zoom-us
   ];
-  nixpkgs.overlays = [(self: super: { discord = super.discord.overrideAttrs (_: { src = builtins.fetchTarball "https://discord.com/api/download?platform=linux&format=tar.gz"; });})];
 
-  #xdg.mime.defaultApplications = {
-  #  application/pdf = "zathura.desktop";
-  #  image/png = "sxiv.desktop";
-  #};
+  nixpkgs.overlays = [
+    (self: super: {
+      discord = super.discord.overrideAttrs (_: {
+        src = builtins.fetchTarball
+          "https://discord.com/api/download?platform=linux&format=tar.gz";
+      });
+    })
+  ];
 
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
+  xdg.mime.defaultApplications = {
+    "application/pdf" = "org.pwmt.zathura-pdf-mupdf.desktop";
+    "image/png" = "sxiv.desktop";
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

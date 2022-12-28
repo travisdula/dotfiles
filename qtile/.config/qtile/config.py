@@ -44,6 +44,7 @@ def run_or_raise(app, wm_class):
 
 
 MOD = "mod4"
+
 TERMINAL = "kitty"
 MUSIC = "spotify"
 BROWSER = "firefox"
@@ -52,8 +53,8 @@ CHAT = "discord"
 CALENDAR = "firefox --new-window https://calendar.google.com/calendar/u/0/r/week"
 SYSTEM_MONITOR = f"{TERMINAL} -e gotop"
 AUDIO_CONTROL = f"{TERMINAL} -e pulsemixer"
-EDITOR = "nvim"
-IS_TERMINAL_EDITOR = True
+SCREENSHOT = "flameshot gui"
+
 NORD = {
     0: "#2E3440",
     1: "#3B4252",
@@ -137,6 +138,7 @@ keys = [
         desc="Spawn a command using a prompt widget",
     ),
     Key([MOD, "shift"], "b", lazy.hide_show_bar("top"), desc="toggle bar"),
+    Key([MOD], "s", lazy.spawn(SCREENSHOT), desc="(s)creenshot"),
     # run or raise
     # Key([MOD], "b", lazy.function(run_or_raise(BROWSER, BROWSER)), desc="run or raise (b)rowser"),
     # Key([MOD], "m", lazy.function(run_or_raise(MUSIC, MUSIC)), desc="run or raise (m)usic"),
@@ -262,11 +264,8 @@ screens = [
                 ),
                 widget.Volume(emoji=True, **alpha_colors),
                 #widget.Bluetooth(**alpha_colors),
-                widget.Battery(
-                    format="| 🔋 {char} {percent:02.0%} |", **alpha_colors
-                ), 
                 widget.Backlight(
-                    fmt="💡 {} |",
+                    fmt="| 💡 {} |",
                     change_command="brightnessctl set {0}%",
                     step=5,
                     backlight_name="amdgpu_bl0",
@@ -289,6 +288,9 @@ screens = [
                     **alpha_colors,
                 ),
                 #widget.Wttr(**alpha_colors),
+                widget.Battery(
+                    format="🔋 {char} {percent:02.0%} |", **alpha_colors
+                ), 
                 widget.Clock(
                     format="%Y-%m-%d %A %H:%M",
                     mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(CALENDAR)},

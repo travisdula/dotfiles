@@ -76,6 +76,7 @@ NORD = {
 }
 
 keys = [
+    Key([MOD], "f", lazy.window.toggle_floating(), desc="Toggle floating"),
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
     # Switch between windows
@@ -333,7 +334,9 @@ floating_layout = layout.Floating(
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
-    ]
+    ],
+    border_focus=NORD[13],
+    border_normal=NORD[14],
 )
 auto_fullscreen = True
 focus_on_window_activation = "smart"

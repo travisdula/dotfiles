@@ -59,7 +59,10 @@
       xkbVariant = "";
       enable = true;
       windowManager.qtile.enable = true;
-      displayManager.lightdm.enable = true;
+      displayManager.lightdm = {
+        extraConfig = "user-authority-in-system-dir = true\n";
+        enable = true;
+      };
       libinput = {
         enable = true;
         mouse.accelProfile = "flat";
@@ -81,7 +84,10 @@
 	night = 3700;
       };
     };
-    unclutter.enable = true;
+    unclutter-xfixes = {
+      enable = true;
+      extraOptions = [ "noevents" ];
+    };
     blueman.enable = true;
   };
 
@@ -109,6 +115,7 @@
       viAlias = true;
       vimAlias = true;
     };
+
     fish.enable = true;
     # Some programs need SUID wrappers, can be configured further or are
     # started in user sessions.
@@ -130,45 +137,52 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    bat
-    brightnessctl
-    discord
-    dmenu
-    exa
-    fd
-    firefox
-    flameshot
-    gcc
-    gimp
-    git
-    gotop
-    htop
-    kitty
-    lf
-    libreoffice
-    mpv
-    neovim
-    pandoc
-    pavucontrol
-    pulsemixer
-    python
-    qtile
-    ripgrep
-    signal-desktop
-    spotify
-    stow
-    sxiv
-    texlive.combined.scheme-small
-    unzip
-    wget
-    xclip # needed for nvim unnamedplus clipboard
-    zathura
-    zip
-    zoom-us
-  ];
+  environment = {
+    sessionVariables = rec {
+      GTK_THEME = "Nordic"; # Adwaita:dark if don't want Nord
+    };
+
+    systemPackages = with pkgs; [
+      bat
+      brightnessctl
+      discord
+      dmenu
+      exa
+      fd
+      firefox
+      flameshot
+      gcc
+      gimp
+      git
+      gotop
+      htop
+      kitty
+      lf
+      libreoffice
+      mpv
+      neovim
+      nordic # Nord theme
+      obsidian
+      pandoc
+      pavucontrol
+      pulsemixer
+      python
+      qtile
+      ripgrep
+      signal-desktop
+      spotify
+      stow
+      sxiv
+      teams
+      texlive.combined.scheme-small
+      unzip
+      wget
+      xclip # needed for nvim unnamedplus clipboard
+      zathura
+      zip
+      zoom-us
+    ];
+  };
 
   nixpkgs.overlays = [
     (self: super: {
@@ -191,4 +205,13 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.11"; # Did you read the comment?
+
+  nix = {
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 21d";
+    };
+    settings.auto-optimise-store = true;
+  };
 }

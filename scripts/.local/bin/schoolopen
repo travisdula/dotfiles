@@ -1,4 +1,4 @@
-#!/bin/fish
+#!/usr/bin/env fish
 cd $SEM
 set f $SEM/(fd --strip-cwd-prefix --base-directory $SEM --type file . | rofi -match fuzzy -p "search" -dmenu -i 2> /dev/null)
 if test -z $f

@@ -112,6 +112,10 @@ vim.o.mouse = 'a'
 -- Enable break indent
 vim.o.breakindent = true
 
+-- Override width of 8 to 4
+vim.o.shiftwidth = 4
+vim.o.tabstop = 4
+
 -- Save undo history
 vim.o.undofile = true
 
@@ -234,7 +238,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'fish', 'lua', 'nix', 'python', 'typescript', 'help' },
+  ensure_installed = { 'c', 'cpp', 'fish', 'java', 'lua', 'nix', 'python', 'typescript', 'help' },
 
   highlight = { enable = true },
   indent = { enable = true, disable = { 'python' } },

@@ -50,6 +50,16 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  virtualisation = {
+    docker = {
+      enable = true;
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
+    };
+  };
+
   # Configure keymap in X11
   services = {
     # Enable the OpenSSH daemon.
@@ -104,7 +114,11 @@
     shell = pkgs.fish;
     isNormalUser = true;
     description = "Travis A. Dula";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "docker"
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [];
   };
 
@@ -112,8 +126,6 @@
     neovim = {
       enable = true;
       defaultEditor = true;
-      viAlias = true;
-      vimAlias = true;
     };
 
     fish.enable = true;
@@ -175,6 +187,7 @@
       sxiv
       teams
       texlive.combined.scheme-small
+      thunderbird
       unzip
       wget
       xclip # needed for nvim unnamedplus clipboard

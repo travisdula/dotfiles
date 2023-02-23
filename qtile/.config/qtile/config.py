@@ -290,7 +290,8 @@ screens = [
                 ),
                 #widget.Wttr(**alpha_colors),
                 widget.Battery(
-                    format="🔋 {char} {percent:02.0%} |", **alpha_colors
+                    format="🔋 {char} {percent:02.0%} |", **alpha_colors,
+                    show_short_text=False,
                 ), 
                 widget.Clock(
                     format="%Y-%m-%d %A %H:%M",

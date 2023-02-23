@@ -1,0 +1,42 @@
+/*imports must come first*/
+
+@import "/home/travis/.config/firefox/fonts/JetBrainsMono.css";
+
+/*@import "/home/travis/.config/firefox/colors/colors.css";
+@import "/home/travis/.config/firefox/colorschemes/gruvbox.css";*/
+
+/*@import "/home/travis/.config/firefox/tab_bar/debloat_tab_bar.css";
+@import "/home/travis/.config/firefox/tab_bar/tabs_layout.css";
+@import "/home/travis/.config/firefox/tab_bar/tabs_fill_available_width.css";
+@import "/home/travis/.config/firefox/tab_bar/numbered_tabs.css";
+@import "/home/travis/.config/firefox/tab_bar/tab_close_button_always_on_hover.css";
+@import "/home/travis/.config/firefox/tab_bar/hide_tabs_with_one_tab.css";*/
+
+@import "/home/travis/.config/firefox/navbar/debloat_navbar.css";
+@import "/home/travis/.config/firefox/navbar/navbar_layout.css";
+@import "/home/travis/.config/firefox/navbar/navbar_on_focus.css";
+
+@import "/home/travis/.config/firefox/urlbar/debloat_urlbar.css";
+@import "/home/travis/.config/firefox/urlbar/urlbar_layout.css";
+@import "/home/travis/.config/firefox/urlbar/remove_megabar.css";
+
+@import "/home/travis/.config/firefox/sidebar/debloat_sidebar.css";
+@import "/home/travis/.config/firefox/sidebar/sidebar_layout.css";
+
+#main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar > .toolbar-items {
+  opacity: 0;
+  pointer-events: none;
+}
+#main-window:not([tabsintitlebar="true"]) #TabsToolbar {
+    visibility: collapse !important;
+}
+.tabbrowser-tabs[treestyletab-mode="vertical"]
+  .tabbrowser-arrowscrollbox > scrollbox {
+  overflow-y: hidden !important;
+}
+#main-window[titlepreface^="[1] "] #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] {
+  visibility: collapse !important;
+}
+#main-window[titlepreface^="[1] "] .sidebar-splitter {
+    display: none;
+}

@@ -166,6 +166,7 @@
       gcc
       gimp
       git
+      gnumake
       gotop
       htop
       kitty

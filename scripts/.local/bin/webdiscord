@@ -1,2 +1,2 @@
-#!/bin/sh
+#!/usr/bin/env sh
 firefox --new-window "https://discord.com/app"

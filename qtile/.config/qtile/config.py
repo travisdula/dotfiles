@@ -103,8 +103,8 @@ keys = [
     Key(
         [MOD, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"
     ),
-    # Key([MOD, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
-    # Key([MOD, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
+    Key([MOD, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
+    Key([MOD, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key([MOD, "shift", "control"], "h", lazy.layout.swap_column_left()),
     Key([MOD, "shift", "control"], "l", lazy.layout.swap_column_right()),
     Key([MOD], "n", lazy.layout.normalize(), desc="Reset all window sizes"),

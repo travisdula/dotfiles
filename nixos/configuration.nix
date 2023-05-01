@@ -64,6 +64,14 @@
   services = {
     # Enable the OpenSSH daemon.
     # openssh.enable = true;
+    printing = {
+      enable = true;
+    };
+    avahi = {
+      enable = true;
+      nssmdns = true;
+      openFirewall = true;
+    };
     xserver = {
       layout = "us";
       xkbVariant = "";
@@ -195,6 +203,7 @@
       zathura
       zip
       zoom-us
+      zotero
     ];
   };
 

@@ -234,10 +234,13 @@ screens = [
                 widget.GroupBox(
                     active=NORD[15],
                     inactive=NORD[10],
-                    this_current_screen_border=NORD[11],
-                    highlight_method="line",
-                    highlight_color=[NORD[0], NORD[0]],
+                    this_current_screen_border=NORD[15],
+                    block_highlight_text_color=NORD[0], # for use with "block"
+                    highlight_method="block",
+                    #highlight_color=[NORD[0], NORD[0]], # for use with "line"
                     center_aligned=True,
+                    #hide_unused=True,
+                    rounded=False,
                     # fontsize=22, # needed for nerd font icons
                 ),
                 widget.TaskList(
@@ -302,7 +305,8 @@ screens = [
             ],
             24,
         ),
-        wallpaper="pics/wall.jpg",
+        wallpaper="pics/wall.png",
+        wallpaper_mode="stretch",
     ),
 ]
 

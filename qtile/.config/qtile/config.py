@@ -211,7 +211,7 @@ layouts = [
 
 widget_defaults = dict(
     font="mono",
-    fontsize=13,
+    fontsize=18,
     padding=3,
     background=NORD[0],
     foreground=NORD[15],
@@ -246,12 +246,12 @@ screens = [
                 widget.TaskList(
                     foreground=NORD[0],
                     border=NORD[15],
-                    fontsize=12,
+                    fontsize=18,
                     unfocused_border=NORD[10],
                     highlight_method="block",
-                    max_title_width=200,
+                    max_title_width=300,
                     title_width_method="uniform",
-                    icon_size=15,
+                    icon_size=24,
                     rounded=False,
                 ),
                 widget.Notify(default_timeout=45),
@@ -272,7 +272,7 @@ screens = [
                     fmt="| 💡 {} |",
                     change_command="brightnessctl set {0}%",
                     step=5,
-                    backlight_name="amdgpu_bl0",
+                    backlight_name="intel_backlight",
                     brightness_file="brightness",
                     **alpha_colors
                 ),
@@ -303,9 +303,9 @@ screens = [
                 ),
                 widget.DF(),
             ],
-            24,
+            30,
         ),
-        wallpaper="pics/wall.png",
+        wallpaper="pics/wall.jpg",
         wallpaper_mode="stretch",
     ),
 ]

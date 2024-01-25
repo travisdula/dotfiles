@@ -12,13 +12,29 @@
 
   # Bootloader
   boot.loader = {
-    systemd-boot.enable = true;
+    grub = {
+      enable = true;
+      devices = ["nodev"];
+      efiSupport = true;
+      version = 2;
+      extraEntries = ''
+        menuentry "Windows" {
+          insmod part_gpt
+          insmod fat
+          insmod search_fs_uuid
+          insmod chain
+          search --fs-uuid --set=root 2264C12A-3583-4B0F-A710-F3FE3C1B1873
+          chainloader /boot/efi/EFI/Microsoft/Boot/bootmgfw.efi
+        }
+      '';
+    };
+    #systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
     efi.efiSysMountPoint = "/boot/efi";
   };
 
   networking = {
-    hostName = "envy"; # Define your hostname.
+    hostName = "thethinker"; # Define your hostname.
     networkmanager.enable = true;
     # Open ports in the firewall.
     # firewall.allowedTCPPorts = [ ... ];
@@ -50,15 +66,15 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  virtualisation = {
-    docker = {
-      enable = true;
-      rootless = {
-        enable = true;
-        setSocketVariable = true;
-      };
-    };
-  };
+  #virtualisation = {
+  #  docker = {
+  #    enable = true;
+  #    rootless = {
+  #      enable = true;
+  #      setSocketVariable = true;
+  #    };
+  #  };
+  #};
 
   # Configure keymap in X11
   services = {
@@ -67,11 +83,11 @@
     printing = {
       enable = true;
     };
-    avahi = {
-      enable = true;
-      nssmdns = true;
-      openFirewall = true;
-    };
+    #avahi = {
+    #  enable = true;
+    #  nssmdns = true;
+    #  openFirewall = true;
+    #};
     xserver = {
       layout = "us";
       xkbVariant = "";
@@ -113,6 +129,7 @@
   hardware = {
     pulseaudio.enable = true;
     bluetooth.enable = true;
+    video.hidpi.enable = true;
   };
 
   location.provider = "geoclue2";
@@ -123,7 +140,6 @@
     isNormalUser = true;
     description = "Travis A. Dula";
     extraGroups = [
-      "docker"
       "networkmanager"
       "wheel"
     ];
@@ -194,7 +210,6 @@
       spotify
       stow
       sxiv
-      teams
       texlive.combined.scheme-small
       thunderbird
       unzip
@@ -202,19 +217,18 @@
       xclip # needed for nvim unnamedplus clipboard
       zathura
       zip
-      zoom-us
       zotero
     ];
   };
 
-  nixpkgs.overlays = [
-    (self: super: {
-      discord = super.discord.overrideAttrs (_: {
-        src = builtins.fetchTarball
-          "https://discord.com/api/download?platform=linux&format=tar.gz";
-      });
-    })
-  ];
+  #nixpkgs.overlays = [
+  #  (self: super: {
+  #    discord = super.discord.overrideAttrs (_: {
+  #      src = builtins.fetchTarball
+  #        "https://discord.com/api/download?platform=linux&format=tar.gz";
+  #    });
+  #  })
+  #];
 
   xdg.mime.defaultApplications = {
     "application/pdf" = "org.pwmt.zathura-pdf-mupdf.desktop";

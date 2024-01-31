@@ -1,0 +1,174 @@
+  /* tab count in title bar */
+#main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar > .toolbar-items {
+  opacity: 0;
+  pointer-events: none;
+}
+#main-window:not([tabsintitlebar="true"]) #TabsToolbar {
+    visibility: collapse !important;
+}
+  /* I don't know */
+.tabbrowser-tabs[treestyletab-mode="vertical"]
+  .tabbrowser-arrowscrollbox > scrollbox {
+  overflow-y: hidden !important;
+}
+  /* I don't know */
+#main-window[titlepreface^="[1] "] #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] {
+  visibility: collapse !important;
+}
+  /* I don't know */
+#main-window[titlepreface^="[1] "] .sidebar-splitter {
+    display: none;
+}
+
+  /* debloat navbar */
+#back-button { display: none; }
+
+#forward-button { display: none; }
+
+#reload-button { display: none; }
+
+#stop-button { display: none; }
+
+#home-button { display: none; }
+
+#downloads-button { display: none; }
+
+#library-button { display: none; }
+
+#sidebar-button { display: none; }
+
+/* Firefox account button */
+#fxa-toolbar-menu-button { display: none; }
+
+#nav-bar-overflow-button { display: none !important; }
+
+/* General Firefox menu button */
+#PanelUI-button { display: none; }
+
+/* Empty space before and after the url bar */
+#customizableui-special-spring1,
+#customizableui-special-spring2 { display: none; }
+
+  /* navbar layout */
+#nav-bar,
+#navigator-toolbox {
+  border-width: 0 !important;
+}
+  /* navbar on focus */
+/* https://www.reddit.com/r/FirefoxCSS/comments/hw3tbxs/howing_the_navbar_in_place_of_the_tabbar_when/ */
+
+:root[sessionrestored] #nav-bar:not([customizing]) {
+  display: flex;
+  position: fixed !important;
+  top: 0;
+  width: 100vw;
+  z-index: -1;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#nav-bar-customization-target { flex-grow: 1; }
+
+#nav-bar:focus-within {
+  z-index: 2 !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+  /* debloat urlbar */
+#tracking-protection-icon-container { display: none; }
+
+#identity-box { display: none; }
+
+#reader-mode-button { display: none; }
+
+#pageActionButton { display: none; }
+
+#pocket-button { display: none; }
+
+#star-button { display: none; }
+
+#urlbar-zoom-button { display: none; }
+
+/* Go to arrow button at the end of the urlbar when searching */
+#urlbar-go-button { display: none; }
+
+/* Bottom left page loading status or url preview */
+#statuspanel { display: none !important; }
+  /* urlbar layout */
+#urlbar-container {
+  --urlbar-container-height: var(--tab-min-height) !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+#urlbar {
+  --urlbar-height: var(--tab-min-height) !important;
+  --urlbar-toolbar-height: var(--tab-min-height) !important;
+  min-height: var(--tab-min-height) !important;
+}
+
+#urlbar-background {
+  border-width: 0 !important;
+  border-radius: 0 !important;
+}
+
+#urlbar-input-container {
+  border-width: 0 !important;
+}
+
+#urlbar-input {
+  margin-left: 0.4em !important;
+  margin-right: 0.4em !important;
+}
+
+.urlbarView-row {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  line-height: var(--urlbar-height) !important;
+}
+
+.urlbarView-row-inner {
+  padding-top: 0.3em !important;
+  padding-bottom: 0.3em !important;
+  height: var(--urlbar-height) !important;
+}
+
+.urlbarView-favicon {
+  height: 1em !important;
+  width: 1em !important;
+  margin-bottom: 0.2em !important;
+}
+ /* remove megabar */
+/* https://github.com/WesleyBranton/Remove-Firefox-Megabar/blob/master/remove_megabar.css */
+
+/* REMOVE MEGABAR START
+ * VERSION 1.0.4
+ * CODE AT: http://userchrome.wesleybranton.com/megabar
+ * RELEASE NOTES: http://userchrome.wesleybranton.com/notes/megabar */
+@-moz-document url(chrome://browser/content/browser.xhtml) {
+    /* DISABLE EXPANDING START */
+    #urlbar[breakout][breakout-extend] {
+        top: calc((var(--urlbar-toolbar-height) - var(--urlbar-height)) / 2) !important;
+        left: 0 !important;
+        width: 100% !important;
+    }
+
+    #urlbar[breakout][breakout-extend] > #urlbar-input-container {
+        height: var(--urlbar-height) !important;
+        padding-block: 0 !important;
+        padding-inline: 0 !important;
+    }
+    /* DISABLE EXPANDING END */
+}
+/* REMOVE MEGABAR END */
+ /* debloat sidebar */
+#sidebar-header { display: none !important; }
+
+#sidebar-search-container { display: none; }
+ /* sidebar layout*/
+.sidebar-placesTreechildren {
+  padding-top: 0.3em;
+}

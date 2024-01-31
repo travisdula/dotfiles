@@ -23,7 +23,6 @@ set XDG_PUBLICSHARE_DIR "$HOME/pub"
 set XDG_TEMPLATES_DIR "$HOME/templ"
 set XDG_VIDEOS_DIR "$HOME/vids"
 
-set SEM $HOME/docs/school/2023_spring
 set -x BAT_THEME Nord
 [ -f /usr/share/autojump/autojump.fish ]; and source /usr/share/autojump/autojump.fish
 function __fish_command_not_found_handler --on-event fish_command_not_found

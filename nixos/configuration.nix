@@ -3,11 +3,14 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
+let
+  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz";
+in
 {
   imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+    [ 
+      (import "${home-manager}/nixos")
+      ./hardware-configuration.nix # Include the results of the hardware scan.
     ];
 
   # Bootloader
@@ -16,7 +19,6 @@
       enable = true;
       devices = ["nodev"];
       efiSupport = true;
-      version = 2;
       extraEntries = ''
         menuentry "Windows" {
           insmod part_gpt
@@ -129,7 +131,6 @@
   hardware = {
     pulseaudio.enable = true;
     bluetooth.enable = true;
-    video.hidpi.enable = true;
   };
 
   location.provider = "geoclue2";
@@ -146,6 +147,7 @@
     packages = with pkgs; [];
   };
 
+  home-manager.users.travis = import /home/travis/dotfiles/home-manager/home.nix;
   programs = {
     neovim = {
       enable = true;
@@ -162,7 +164,7 @@
     # };
   };
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
@@ -183,29 +185,31 @@
       brightnessctl
       discord
       dmenu
-      exa
+      eza
       fd
-      firefox
+      firefox# to be configured via home-manager
       flameshot
       gcc
       gimp
-      git
+      git # home-manager
       gnumake
       gotop
       htop
-      kitty
-      lf
+      kitty # home-manager
+      lf # to be configured via home-manager
       libreoffice
       mpv
-      neovim
+      neovim # home-manager
       nordic # Nord theme
-      obsidian
+      # obsidian # electron outdated
       pandoc
       pavucontrol
       pulsemixer
-      python
+      python3
       qtile
+      R
       ripgrep
+      rstudio
       signal-desktop
       spotify
       stow
@@ -241,7 +245,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.11"; # Did you read the comment?
+  system.stateVersion = "23.11"; # Did you read the comment?
 
   nix = {
     gc = {

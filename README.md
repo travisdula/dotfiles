@@ -4,11 +4,13 @@ The dotfiles for my GNU/Linux systems
 
 ## How do I use this?
 
-Clone this repo into your home directory, cd into the dotfiles directory that was created, and use GNU Stow on a subdirectory to create symlinks in the proper places.
+Clone this repo into your home directory, cd into the dotfiles directory that was created, and use GNU Stow on a subdirectory to create symlinks in the proper places (not for `home-manager` or `nixos`).
 
 The `nixos` folder (for NixOS, of course) requires `nixos/configuration.nix` to be linked to `/etc/nixos/configuration.nix`.
 
 Some things, such as Firefox and NixOS, have my username hardcoded, so you'll need to change that to use this.
+
+For GitHub use, generate and link a new SSH key.
 
 ## Credits
 

@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./programs/firefox.nix
+    ./programs/fish.nix
+  ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "travis";
@@ -38,63 +42,6 @@
   };
 
   # look into https://github.com/TLATER/dotfiles/blob/b39af91fbd13d338559a05d69f56c5a97f8c905d/home-config/config/graphical-applications/firefox.nix
-  programs.firefox = { # TODO move to own file
-    enable = true;
-    profiles.travis = {
-      userChrome = builtins.readFile ./firefoxUserChrome.css;
-      # needs NUR to work
-      #extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-      #  clearurls
-      #  darkreader
-      #  privacy-badger
-      #  ublock-origin
-      #  vimium
-      #];
-      # some taken from https://shen.hong.io/nixos-for-philosophy-installing-firefox-latex-vscodium/
-      settings = {
-        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-        "browser.download.dir" = "/home/travis/dl";
-        "browser.toolbars.bookmarks.visibility" = "never";
-        "layout.css.devPixelsPerPx" = 1.2; # increase UI size
-        # HTTPS
-        "dom.security.https_only_mode" = true;
-        "dom.security.https_only_mode_ever_enabled" = true;
-        # Privacy settings
-        "privacy.donottrackheader.enabled" = true;
-        "privacy.trackingprotection.enabled" = true;
-        "privacy.trackingprotection.socialtracking.enabled" = true;
-        "privacy.partition.network_state.ocsp_cache" = true;
-        # Disable all sorts of telemetry
-        "browser.newtabpage.activity-stream.feeds.telemetry" = false;
-        "browser.newtabpage.activity-stream.telemetry" = false;
-        "browser.ping-centre.telemetry" = false;
-        "toolkit.telemetry.archive.enabled" = false;
-        "toolkit.telemetry.bhrPing.enabled" = false;
-        "toolkit.telemetry.enabled" = false;
-        "toolkit.telemetry.firstShutdownPing.enabled" = false;
-        "toolkit.telemetry.hybridContent.enabled" = false;
-        "toolkit.telemetry.newProfilePing.enabled" = false;
-        "toolkit.telemetry.reportingpolicy.firstRun" = false;
-        "toolkit.telemetry.shutdownPingSender.enabled" = false;
-        "toolkit.telemetry.unified" = false;
-        "toolkit.telemetry.updatePing.enabled" = false;
-        
-        # As well as Firefox 'experiments'
-        "experiments.activeExperiment" = false;
-        "experiments.enabled" = false;
-        "experiments.supported" = false;
-        "network.allow-experiments" = false;
-        # Disable Pocket Integration
-        "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
-        "extensions.pocket.enabled" = false;
-        "extensions.pocket.api" = "";
-        "extensions.pocket.oAuthConsumerKey" = "";
-        "extensions.pocket.showHome" = false;
-        "extensions.pocket.site" = "";
-      };
-    };
-    
-  };
 
   # this will be hard
   #programs.neovim = { TODO
@@ -104,51 +51,6 @@
   #    number = true;
   #  };
 
-  programs.fish = {
-  # what to do with these?
-    #  # cleaning home directory
-    #set XDG_CONFIG_HOME $HOME/.config
-    #set XDG_CACHE_HOME $HOME/.cache
-    #set XDG_DATA_HOME $HOME/.local/share
-    #
-    #set XCOMPOSEFILE $XDG_CONFIG_HOME/X11/xcompose
-    #set XCOMPOSECACHE $XDG_CACHE_HOME/X11/xcompose
-    #set PYTHONPYCACHEPREFIX $XDG_CACHE_HOME/python
-    #set TEXMFHOME $XDG_DATA_HOME/texmf
-    #set TEXMFVAR $XDG_CACHE_HOME/texlive/texmf-va
-    #set TEXMFCONFIG $XDG_CONFIG_HOME/texlive/texmf-config
-    #
-    ## my standard home directories
-    #set XDG_DESKTOP_DIR "$HOME/desk"
-    #set XDG_DOCUMENTS_DIR "$HOME/docs"
-    #set XDG_DOWNLOAD_DIR "$HOME/dl"
-    #set XDG_MUSIC_DIR "$HOME/mus"
-    #set XDG_PICTURES_DIR "$HOME/pics"
-    #set XDG_PUBLICSHARE_DIR "$HOME/pub"
-    #set XDG_TEMPLATES_DIR "$HOME/templ"
-    #set XDG_VIDEOS_DIR "$HOME/vids"
-
-    enable = true;
-    shellAbbrs = {
-      b = "bat";
-      gc = "git commit";
-      gp = "git push";
-      gs = "git status";
-      l = "exa --icons";
-      ll = "exa -hal --icons";
-      llt = "exa -hal --tree --icons";
-      n = "nvim";
-      p = "python";
-      pmix = "pulsemixer";
-      y = "yay";
-      z = "zathura";
-    };
-    interactiveShellInit = ''
-      fish_config theme choose Nord
-      fish_vi_key_bindings
-      set fish_greeting
-    '';
-  };
 
   programs.git = {
     enable = true;
@@ -163,7 +65,7 @@
       name = "JetBrains Mono";
       size = 16;
     };
-    extraConfig = builtins.readFile ./kitty.conf;
+    extraConfig = builtins.readFile ./programs/kitty.conf;
     theme = "Nord";
   };
   

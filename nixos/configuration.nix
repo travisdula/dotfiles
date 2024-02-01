@@ -19,16 +19,7 @@ in
       enable = true;
       devices = ["nodev"];
       efiSupport = true;
-      extraEntries = ''
-        menuentry "Windows" {
-          insmod part_gpt
-          insmod fat
-          insmod search_fs_uuid
-          insmod chain
-          search --fs-uuid --set=root 2264C12A-3583-4B0F-A710-F3FE3C1B1873
-          chainloader /boot/efi/EFI/Microsoft/Boot/bootmgfw.efi
-        }
-      '';
+      useOSProber = true;
     };
     #systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;

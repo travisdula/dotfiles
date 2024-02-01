@@ -41,7 +41,6 @@
     };
   };
 
-  # look into https://github.com/TLATER/dotfiles/blob/b39af91fbd13d338559a05d69f56c5a97f8c905d/home-config/config/graphical-applications/firefox.nix
 
   # this will be hard
   #programs.neovim = { TODO

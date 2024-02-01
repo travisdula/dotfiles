@@ -173,7 +173,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 require('lualine').setup {
   options = {
     icons_enabled = false,
-    theme = 'onedark',
+    theme = 'nord',
     component_separators = '|',
     section_separators = '',
   },
@@ -184,9 +184,9 @@ require('Comment').setup()
 
 -- Enable `lukas-reineke/indent-blankline.nvim`
 -- See `:help indent_blankline.txt`
-require('indent_blankline').setup {
-  char = '┊',
-  show_trailing_blankline_indent = false,
+require('ibl').setup {
+  indent = { char = '┊' },
+  --show_trailing_blankline_indent = false,
 }
 
 -- Gitsigns
@@ -238,7 +238,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'fish', 'java', 'lua', 'nix', 'python', 'typescript', 'help' },
+  ensure_installed = { 'c', 'cpp', 'fish', 'java', 'nix', 'python', 'typescript' },
 
   highlight = { enable = true },
   indent = { enable = true, disable = { 'python' } },
@@ -359,13 +359,7 @@ local servers = {
   -- pyright = {},
   -- rust_analyzer = {},
   -- tsserver = {},
-
-  sumneko_lua = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-    },
-  },
+  -- sumenko_lua = {},
 }
 
 -- Setup neovim lua configuration

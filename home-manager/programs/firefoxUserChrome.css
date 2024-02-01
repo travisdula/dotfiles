@@ -1,3 +1,8 @@
+/* set font */
+* {
+   font-family: "JetBrains Mono" !important;
+   font-size: 12pt !important; 
+}
   /* tab count in title bar */
 #main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar > .toolbar-items {
   opacity: 0;

@@ -4,28 +4,6 @@
   programs.firefox = {
     enable = true;
     profiles.travis = {
-      search.engines = {
-        "Nix Packages" = {
-          urls = [{
-              template = "https://search.nixos.org/packages";
-              params = [
-                { name = "type"; value = "packages"; }
-                { name = "query"; value = "{searchTerms}"; }
-              ];
-          }];
-          icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-          definedAliases = [ "@np" ];
-        };
-        "NixOS Wiki" = {
-          urls = [{ template = "https://nixos.wiki/index.php?search={searchTerms}"; }];
-          iconUpdateURL = "https://nixos.wiki/favicon.png";
-          updateInterval = 24 * 60 * 60 * 1000; # every day
-          definedAliases = [ "@nw" ];
-        };
-        "Bing".metaData.hidden = true;
-        "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
-
-      };
       userChrome = builtins.readFile ./firefoxUserChrome.css;
       # needs NUR to work
       #extensions = with pkgs.nur.repos.rycee.firefox-addons; [
@@ -41,8 +19,8 @@
         "browser.ctrlTab.previews" = true;
         "browser.ctrlTab.sortByRecentlyUsed" = true; # enables previews
         "browser.download.dir" = "/home/travis/dl";
-        "browser.newtab.url" = "about:blank";
         "browser.startup.homepage" = "about:blank";
+        "browser.newtabpage.enabled" = false;
         "browser.toolbars.bookmarks.visibility" = "never";
         "layout.css.devPixelsPerPx" = 1.2; # increase UI size
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;

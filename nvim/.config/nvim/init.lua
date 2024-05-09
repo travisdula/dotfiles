@@ -184,21 +184,18 @@ require('Comment').setup()
 
 -- Enable `lukas-reineke/indent-blankline.nvim`
 -- See `:help indent_blankline.txt`
-require('ibl').setup {
-  indent = { char = '┊' },
-  --show_trailing_blankline_indent = false,
-}
+require('ibl').setup {}
 
 -- Gitsigns
 -- See `:help gitsigns.txt`
 require('gitsigns').setup {
-  signs = {
-    add = { text = '+' },
-    change = { text = '~' },
-    delete = { text = '_' },
-    topdelete = { text = '‾' },
-    changedelete = { text = '~' },
-  },
+  -- signs = {
+  --   add = { text = '+' },
+  --   change = { text = '~' },
+  --   delete = { text = '_' },
+  --   topdelete = { text = '‾' },
+  --   changedelete = { text = '~' },
+  -- },
 }
 
 -- [[ Configure Telescope ]]

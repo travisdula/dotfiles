@@ -174,6 +174,8 @@ in
     systemPackages = with pkgs; [
       bat
       brightnessctl
+      coq
+      coqPackages.coqide
       discord
       dmenu
       eza
@@ -198,12 +200,11 @@ in
       pulsemixer
       python3
       qtile
-      R
       ripgrep
-      rstudio
       signal-desktop
       spotify
       stow
+      swiProlog
       sxiv
       texlive.combined.scheme-small
       thunderbird

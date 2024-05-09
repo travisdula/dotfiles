@@ -206,7 +206,7 @@ layouts = [
     layout.Columns(**layout_defaults),
     # layout.Tile(**layout_defaults),
     # layout.MonadThreeCol(**layout_defaults),
-    layout.Max(margin=[100, 550, 100, 550]),
+    layout.Max(margin=([50]*4)),
 ]
 
 widget_defaults = dict(

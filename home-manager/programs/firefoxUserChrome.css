@@ -3,55 +3,47 @@
    font-family: "JetBrains Mono" !important;
    font-size: 12pt !important; 
 }
-  /* tab count in title bar */
-#main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar > .toolbar-items {
+
+ /* tab count in title bar */
+/* #main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar > .toolbar-items {
   opacity: 0;
   pointer-events: none;
 }
+*/
+
 /* hide tab bar */
 #main-window:not([tabsintitlebar="true"]) #TabsToolbar {
     visibility: collapse !important;
 }
 
-  /* I don't know */
+  /* hide TST scroll bar */
 .tabbrowser-tabs[treestyletab-mode="vertical"]
   .tabbrowser-arrowscrollbox > scrollbox {
   overflow-y: hidden !important;
 }
-  /* I don't know */
+  /* hide TST if only one tab is open */
 #main-window[titlepreface^="[1] "] #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] {
   visibility: collapse !important;
 }
-  /* I don't know */
+  /* hide sidebar splitter if only one tab is open */
 #main-window[titlepreface^="[1] "] .sidebar-splitter {
     display: none;
 }
 
-  /* debloat navbar */
+  /* debloat navbar - remove buttons */
 #back-button { display: none; }
-
 #forward-button { display: none; }
-
 #reload-button { display: none; }
-
 #stop-button { display: none; }
-
 #home-button { display: none; }
-
 #downloads-button { display: none; }
-
 #library-button { display: none; }
-
 #sidebar-button { display: none; }
-
 /* Firefox account button */
 #fxa-toolbar-menu-button { display: none; }
-
 #nav-bar-overflow-button { display: none !important; }
-
 /* General Firefox menu button */
 #PanelUI-button { display: none; }
-
 /* Empty space before and after the url bar */
 #customizableui-special-spring1,
 #customizableui-special-spring2 { display: none; }
@@ -84,17 +76,11 @@
 
   /* debloat urlbar */
 #tracking-protection-icon-container { display: none; }
-
 #identity-box { display: none; }
-
 #reader-mode-button { display: none; }
-
 #pageActionButton { display: none; }
-
 #pocket-button { display: none; }
-
 #star-button { display: none; }
-
 #urlbar-zoom-button { display: none; }
 
 /* Go to arrow button at the end of the urlbar when searching */
@@ -171,10 +157,11 @@
     /* DISABLE EXPANDING END */
 }
 /* REMOVE MEGABAR END */
+
  /* debloat sidebar */
 #sidebar-header { display: none !important; }
-
 #sidebar-search-container { display: none; }
+
  /* sidebar layout*/
 .sidebar-placesTreechildren {
   padding-top: 0.3em;

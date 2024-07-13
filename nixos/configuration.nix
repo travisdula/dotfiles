@@ -82,21 +82,21 @@ in
     #  openFirewall = true;
     #};
     xserver = {
-      layout = "us";
-      xkbVariant = "";
+      xkb.layout = "us";
+      xkb.variant = "";
       enable = true;
       windowManager.qtile.enable = true;
       displayManager.lightdm = {
         extraConfig = "user-authority-in-system-dir = true\n";
         enable = true;
       };
-      libinput = {
-        enable = true;
-        mouse.accelProfile = "flat";
-        touchpad = {
-          accelProfile = "adaptive"; 
-          disableWhileTyping = true;
-        };
+    };
+    libinput = {
+      enable = true;
+      mouse.accelProfile = "flat";
+      touchpad = {
+        accelProfile = "adaptive"; 
+        disableWhileTyping = true;
       };
     };
     picom.enable = true;
@@ -194,7 +194,7 @@ in
       mpv
       neovim # home-manager
       nordic # Nord theme
-      # obsidian # electron outdated
+      obsidian
       pandoc
       pavucontrol
       pulsemixer
@@ -213,6 +213,7 @@ in
       xclip # needed for nvim unnamedplus clipboard
       zathura
       zip
+      zoom-us
       zotero
     ];
   };

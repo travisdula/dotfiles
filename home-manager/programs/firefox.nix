@@ -7,6 +7,7 @@
       userChrome = builtins.readFile ./firefoxUserChrome.css;
       # needs NUR to work
       #extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+      #  bitwarden
       #  clearurls
       #  darkreader
       #  privacy-badger
@@ -14,20 +15,20 @@
       #  vimium
       #];
       settings = {
-        # my customizations
+        # some taken from https://shen.hong.io/nixos-for-philosophy-installing-firefox-latex-vscodium/
         "browser.aboutConfig.showWarning" = false;
+
         "browser.ctrlTab.previews" = true;
         "browser.ctrlTab.sortByRecentlyUsed" = true; # enables previews
-        "browser.download.dir" = "/home/travis/dl";
-        "browser.startup.homepage" = "about:blank";
-        "browser.newtabpage.enabled" = false;
-        "browser.toolbars.bookmarks.visibility" = "never";
-        "layout.css.devPixelsPerPx" = 1.2; # increase UI size
-        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-        "browser.urlbar.suggest.quicksuggest.sponsored" = false;
-        "toolkit.telemetry.pioneer-new-studies-available" = false;
 
-        # some taken from https://shen.hong.io/nixos-for-philosophy-installing-firefox-latex-vscodium/
+        "browser.download.dir" = "/home/travis/dl";
+
+        "browser.newtabpage.enabled" = false;
+        "browser.startup.homepage" = "about:blank";
+        "browser.toolbars.bookmarks.visibility" = "never";
+        "browser.urlbar.suggest.quicksuggest.sponsored" = false;
+        "layout.css.devPixelsPerPx" = 1.2; # increase UI size
+
         # HTTPS
         "dom.security.https_only_mode" = true;
         "dom.security.https_only_mode_ever_enabled" = true;
@@ -40,12 +41,14 @@
         "browser.newtabpage.activity-stream.feeds.telemetry" = false;
         "browser.newtabpage.activity-stream.telemetry" = false;
         "browser.ping-centre.telemetry" = false;
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         "toolkit.telemetry.archive.enabled" = false;
         "toolkit.telemetry.bhrPing.enabled" = false;
         "toolkit.telemetry.enabled" = false;
         "toolkit.telemetry.firstShutdownPing.enabled" = false;
         "toolkit.telemetry.hybridContent.enabled" = false;
         "toolkit.telemetry.newProfilePing.enabled" = false;
+        "toolkit.telemetry.pioneer-new-studies-available" = false;
         "toolkit.telemetry.reportingpolicy.firstRun" = false;
         "toolkit.telemetry.shutdownPingSender.enabled" = false;
         "toolkit.telemetry.unified" = false;
@@ -63,7 +66,6 @@
         "extensions.pocket.oAuthConsumerKey" = "";
         "extensions.pocket.showHome" = false;
         "extensions.pocket.site" = "";
-
       };
     };
   };

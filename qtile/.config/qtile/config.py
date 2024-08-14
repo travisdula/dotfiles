@@ -55,6 +55,16 @@ SYSTEM_MONITOR = f"{TERMINAL} -e gotop"
 AUDIO_CONTROL = f"{TERMINAL} -e pulsemixer"
 SCREENSHOT = "flameshot gui"
 
+BLUETOOTH = "blueman-manager"
+SETTINGS = f"{TERMINAL} --directory dotfiles"
+
+VOLUME_MUTE = "amixer set Master toggle"
+VOLUME_LOWER = "amixer set Master 1%-"
+VOLUME_RAISE = "amixer set Master 1%+"
+MIC_MUTE = "amixer set Capture toggle"
+BRIGHTNESS_DOWN = "brightnessctl set 5%-"
+BRIGHTNESS_UP = "brightnessctl set 5%+"
+
 NORD = {
     0: "#2E3440",
     1: "#3B4252",
@@ -140,6 +150,18 @@ keys = [
     ),
     Key([MOD, "shift"], "b", lazy.hide_show_bar("top"), desc="toggle bar"),
     Key([MOD], "s", lazy.spawn(SCREENSHOT), desc="(s)creenshot"),
+    Key([], "XF86AudioMute", lazy.spawn(VOLUME_MUTE)),
+    Key([], "XF86AudioLowerVolume", lazy.spawn(VOLUME_LOWER)),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn(VOLUME_RAISE)),
+    Key([], "XF86AudioMicMute", lazy.spawn(MIC_MUTE)),
+    Key([], "XF86MonBrightnessDown", lazy.spawn(BRIGHTNESS_DOWN)),
+    Key([], "XF86MonBrightnessUp", lazy.spawn(BRIGHTNESS_UP)),
+    Key([], "XF86Bluetooth", lazy.spawn(BLUETOOTH)),
+    Key([], "XF86Tools", lazy.spawn(SETTINGS)),
+    #Key(XF86WLAN             , lazy.spawn()),
+    #Key(XF86Display          , lazy.spawn(DISPLAY)),
+    #XF86Favorites
+
     # run or raise
     # Key([MOD], "b", lazy.function(run_or_raise(BROWSER, BROWSER)), desc="run or raise (b)rowser"),
     # Key([MOD], "m", lazy.function(run_or_raise(MUSIC, MUSIC)), desc="run or raise (m)usic"),
@@ -306,7 +328,7 @@ screens = [
             30,
         ),
         wallpaper="pics/wall.jpg",
-        wallpaper_mode="stretch",
+        wallpaper_mode="fill",
     ),
 ]
 

@@ -85,7 +85,10 @@ in
       xkb.layout = "us";
       xkb.variant = "";
       enable = true;
-      windowManager.qtile.enable = true;
+      windowManager.qtile = {
+        enable = true;
+        #backend = "wayland"; # TODO wayland
+      };
       displayManager.lightdm = {
         extraConfig = "user-authority-in-system-dir = true\n";
         enable = true;
@@ -189,7 +192,6 @@ in
       gotop
       htop
       kitty # home-manager
-      lf # to be configured via home-manager
       libreoffice
       mpv
       neovim # home-manager
@@ -211,6 +213,7 @@ in
       unzip
       wget
       xclip # needed for nvim unnamedplus clipboard
+      yazi
       zathura
       zip
       zoom-us

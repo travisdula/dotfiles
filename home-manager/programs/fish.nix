@@ -26,7 +26,7 @@
       n = "nvim";
       p = "python";
       pmix = "pulsemixer";
-      y = "yay";
+      y = "yazi";
       z = "zathura";
     };
     interactiveShellInit = ''

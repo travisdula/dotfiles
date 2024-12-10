@@ -1,0 +1,3 @@
+[submodule "config-nix.nvim"]
+	path = config-nix.nvim
+	url = https://github.com/travisdula/config-nix.nvim

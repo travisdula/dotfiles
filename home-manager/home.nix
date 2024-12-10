@@ -4,6 +4,7 @@
   imports = [
     ./programs/firefox.nix
     ./programs/fish.nix
+    # ./programs/neovim.nix
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -22,34 +23,6 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-  programs.lf = {
-    enable = true;
-    previewer.source = pkgs.writeShellScript "pv.sh" '' 
-      case "$1" in
-          *.tar*) tar tf "$1";;
-          *.zip) unzip -l "$1";;
-          *.rar) unrar l "$1";;
-          *.7z) 7z l "$1";;
-          *.pdf) pdftotext "$1" -;;
-          *.jpg | *.png | *.jpeg) identify "$1" | tr ' ' '\n';;
-          *) highlight -O ansi "$1" || cat "$1";;
-      esac
-            '';
-    keybindings = {
-      Y = "&echo $f | xclip -i -selection clipboard";
-    };
-  };
-
-
-  # this will be hard
-  #programs.neovim = { TODO
-  #  enable = true;
-  #  settings = {
-  #    relativeNumber = true;
-  #    number = true;
-  #  };
-
 
   programs.git = {
     enable = true;

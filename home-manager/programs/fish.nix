@@ -16,7 +16,6 @@
 
     enable = true;
     shellAbbrs = {
-      b = "bat";
       gc = "git commit";
       gp = "git push";
       gs = "git status";

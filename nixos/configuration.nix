@@ -3,17 +3,14 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-let
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz";
-in
 {
   imports =
     [ 
-      (import "${home-manager}/nixos")
+      <home-manager/nixos>
       ./hardware-configuration.nix # Include the results of the hardware scan.
     ];
+  
 
-  # Bootloader
   boot.loader = {
     grub = {
       enable = true;
@@ -44,7 +41,6 @@ in
   # Set your time zone.
   time.timeZone = "America/Chicago";
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {
@@ -69,18 +65,19 @@ in
   #  };
   #};
 
-  # Configure keymap in X11
   services = {
-    # Enable the OpenSSH daemon.
-    # openssh.enable = true;
-    printing = {
+    ntp.enable = true;
+
+    pipewire = {
       enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      # If you want to use JACK applications, uncomment this
+      #jack.enable = true;
+      #extraConfig.pipewire."92-low-latency";
     };
-    #avahi = {
-    #  enable = true;
-    #  nssmdns = true;
-    #  openFirewall = true;
-    #};
+
     xserver = {
       xkb.layout = "us";
       xkb.variant = "";
@@ -94,6 +91,7 @@ in
         enable = true;
       };
     };
+
     libinput = {
       enable = true;
       mouse.accelProfile = "flat";
@@ -102,28 +100,30 @@ in
         disableWhileTyping = true;
       };
     };
+
     picom.enable = true;
+
     redshift = {
       enable = true;
       brightness = {
         day = "1";
-	night = "1";
+	night = "0.8";
       };
       temperature = {
         day = 5500;
 	night = 3700;
       };
     };
+
     unclutter-xfixes = {
       enable = true;
       extraOptions = [ "noevents" ];
     };
+
     blueman.enable = true;
   };
 
-  sound.enable = true;
   hardware = {
-    pulseaudio.enable = true;
     bluetooth.enable = true;
   };
 
@@ -143,24 +143,12 @@ in
 
   home-manager.users.travis = import /home/travis/dotfiles/home-manager/home.nix;
   programs = {
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-    };
-
     fish.enable = true;
-    # Some programs need SUID wrappers, can be configured further or are
-    # started in user sessions.
-    # mtr.enable = true;
-    # gnupg.agent = {
-    #   enable = true;
-    #   enableSSHSupport = true;
-    # };
   };
 
   fonts.packages = with pkgs; [
     noto-fonts
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
     noto-fonts-emoji
     jetbrains-mono
     nerdfonts
@@ -175,7 +163,6 @@ in
     };
 
     systemPackages = with pkgs; [
-      bat
       brightnessctl
       coq
       coqPackages.coqide
@@ -201,12 +188,11 @@ in
       pavucontrol
       pulsemixer
       python3
-      qtile
       ripgrep
       signal-desktop
       spotify
       stow
-      swiProlog
+      swi-prolog
       sxiv
       texlive.combined.scheme-small
       thunderbird
@@ -221,18 +207,9 @@ in
     ];
   };
 
-  #nixpkgs.overlays = [
-  #  (self: super: {
-  #    discord = super.discord.overrideAttrs (_: {
-  #      src = builtins.fetchTarball
-  #        "https://discord.com/api/download?platform=linux&format=tar.gz";
-  #    });
-  #  })
-  #];
-
   xdg.mime.defaultApplications = {
     "application/pdf" = "org.pwmt.zathura-pdf-mupdf.desktop";
-    "image/png" = "sxiv.desktop";
+    "image/*" = "sxiv.desktop";
   };
 
   # This value determines the NixOS release from which the default
@@ -249,6 +226,9 @@ in
       dates = "weekly";
       options = "--delete-older-than 21d";
     };
-    settings.auto-optimise-store = true;
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = [ "nix-command" "flakes" ];
+    };
   };
 }

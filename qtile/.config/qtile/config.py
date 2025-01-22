@@ -58,9 +58,9 @@ SCREENSHOT = "flameshot gui"
 BLUETOOTH = "blueman-manager"
 SETTINGS = f"{TERMINAL} --directory dotfiles"
 
-VOLUME_MUTE = "amixer set Master toggle"
-VOLUME_LOWER = "amixer set Master 1%-"
-VOLUME_RAISE = "amixer set Master 1%+"
+VOLUME_MUTE = "pulsemixer --toggle-mute"
+VOLUME_LOWER = "pulsemixer --change-volume -1"
+VOLUME_RAISE = "pulsemixer --change-volume +1"
 MIC_MUTE = "amixer set Capture toggle"
 BRIGHTNESS_DOWN = "brightnessctl set 5%-"
 BRIGHTNESS_UP = "brightnessctl set 5%+"
@@ -288,7 +288,7 @@ screens = [
                     paused_text="⏸ {track}",
                     **alpha_colors,
                 ),
-                widget.Volume(emoji=True, **alpha_colors),
+                widget.PulseVolume(emoji=True, **alpha_colors),
                 #widget.Bluetooth(**alpha_colors),
                 widget.Backlight(
                     fmt="| 💡 {} |",

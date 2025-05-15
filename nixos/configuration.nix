@@ -7,6 +7,7 @@
   imports =
     [ 
       <home-manager/nixos>
+      <nixos-hardware/lenovo/thinkpad/x1/6th-gen>
       ./hardware-configuration.nix # Include the results of the hardware scan.
     ];
   
@@ -67,6 +68,13 @@
 
   services = {
     ntp.enable = true;
+    fprintd = {
+      enable = true;
+      tod = {
+        enable = true;
+        driver = pkgs.libfprint-2-tod1-goodix;
+      };
+    };
 
     pipewire = {
       enable = true;
@@ -124,7 +132,10 @@
   };
 
   hardware = {
-    bluetooth.enable = true;
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
   };
 
   location.provider = "geoclue2";
@@ -181,6 +192,7 @@
       kitty # home-manager
       libreoffice
       mpv
+      nemo
       neovim # home-manager
       nordic # Nord theme
       obsidian

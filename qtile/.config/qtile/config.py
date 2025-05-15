@@ -283,15 +283,19 @@ screens = [
                 widget.Mpris2(
                     max_chars=35,
                     display_metadata=["xesam:title", "xesam:artist"],
-                    fmt="{} |",
+                    fmt="🎵 {} |",
                     playing_text="⏵ {track}",
                     paused_text="⏸ {track}",
                     **alpha_colors,
                 ),
-                widget.PulseVolume(emoji=True, **alpha_colors),
+                widget.PulseVolume(
+                    emoji=False,
+                    fmt="🔉 {} |",
+                    **alpha_colors
+                ),
                 #widget.Bluetooth(**alpha_colors),
                 widget.Backlight(
-                    fmt="| 💡 {} |",
+                    fmt="💡 {} |",
                     change_command="brightnessctl set {0}%",
                     step=5,
                     backlight_name="intel_backlight",

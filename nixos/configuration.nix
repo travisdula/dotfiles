@@ -136,6 +136,10 @@
       enable = true;
       powerOnBoot = true;
     };
+    trackpoint = {
+      enable = true;
+      speed = 255;
+    };
   };
 
   location.provider = "geoclue2";
@@ -162,7 +166,7 @@
     noto-fonts-cjk-sans
     noto-fonts-emoji
     jetbrains-mono
-    nerdfonts
+    nerd-fonts.jetbrains-mono
   ];
 
   # Allow unfree packages
@@ -175,8 +179,6 @@
 
     systemPackages = with pkgs; [
       brightnessctl
-      coq
-      coqPackages.coqide
       discord
       dmenu
       eza

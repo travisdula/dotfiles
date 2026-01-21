@@ -38,7 +38,7 @@
       size = 16;
     };
     extraConfig = builtins.readFile ./programs/kitty.conf;
-    theme = "Nord";
+    themeFile = "Nord";
   };
   
   programs.zathura = {

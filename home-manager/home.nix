@@ -4,7 +4,10 @@
   imports = [
     ./programs/firefox.nix
     ./programs/fish.nix
+    ./programs/git.nix
+    ./programs/kitty.nix
     ./programs/neovim.nix
+    ./programs/zathura.nix
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -24,63 +27,6 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  programs.git = {
-    enable = true;
-    userName = "Travis A. Dula";
-    userEmail = "travisadula@gmail.com";
-  };
-
-  programs.kitty = {
-    enable = true;
-    shellIntegration.enableFishIntegration = true;
-    font = {
-      name = "JetBrains Mono";
-      size = 16;
-    };
-    extraConfig = builtins.readFile ./programs/kitty.conf;
-    themeFile = "Nord";
-  };
-  
-  programs.zathura = {
-    enable = true;
-    extraConfig =''
-      set recolor "true"
-
-      set completion-bg "#2E3440"
-      set completion-fg "#E5E9F0"
-      set completion-group-bg "#2E3440"
-      set completion-group-fg "#BF616A"
-      set completion-highlight-bg "#E5E9F0"
-      set completion-highlight-fg "#2E3440"
-      
-      set recolor-lightcolor "#2E3440"
-      set recolor-darkcolor "#E5E9F0"
-      set default-bg "#2E3440"
-      
-      set inputbar-bg "#2E3440"
-      set inputbar-fg "#E5E9F0"
-      set notification-bg "#2E3440"
-      set notification-fg "#E5E9F0"
-      set notification-error-bg "#88C0D0"
-      set notification-error-fg "#E5E9F0"
-      set notification-warning-bg "#88C0D0"
-      set notification-warning-fg "#E5E9F0"
-      set statusbar-bg "#2E3440"
-      set statusbar-fg "#E5E9F0"
-      set index-bg "#2E3440"
-      set index-fg "#E5E9F0"
-      set index-active-bg "#E5E9F0"
-      set index-active-fg "#2E3440"
-      set render-loading-bg "#2E3440"
-      set render-loading-fg "#E5E9F0"
-      
-      set window-title-home-tilde true
-      set statusbar-basename true
-      set selection-clipboard clipboard
-      
-      set first-page-column 1
-    '';
-  };
   xdg.userDirs = {
     enable = true;
     createDirectories = true;

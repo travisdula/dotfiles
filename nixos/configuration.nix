@@ -183,19 +183,15 @@
       dmenu
       eza
       fd
-      firefox# to be configured via home-manager
       flameshot
       gcc
       gimp
-      git # home-manager
       gnumake
       gotop
       htop
-      kitty # home-manager
       libreoffice
       mpv
       nemo
-      neovim # home-manager
       nordic # Nord theme
       obsidian
       pandoc

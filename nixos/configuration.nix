@@ -200,6 +200,7 @@
       obsidian
       pandoc
       pavucontrol
+      prismlauncher
       pulsemixer
       python3
       ripgrep

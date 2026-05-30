@@ -4,7 +4,7 @@
   imports = [
     ./programs/firefox.nix
     ./programs/fish.nix
-    # ./programs/neovim.nix
+    ./programs/neovim.nix
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.

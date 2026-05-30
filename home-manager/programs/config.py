@@ -258,7 +258,7 @@ screens = [
                 ),
                 widget.Bluetooth(
                     fmt="🔵🦷 {} |",
-                    **alpha_coars
+                    **alpha_colors
                 ),
                 widget.Backlight(
                     fmt="💡 {} |",

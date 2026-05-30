@@ -1,4 +1,13 @@
 vim.cmd [[colorscheme nord]]
+vim.cmd [[:hi statusline guibg=NONE]]
+
+vim.diagnostic.config({
+  virtual_text = true,      -- Turn virtual text on/off
+  signs = true,             -- Show icons in the sign column
+  underline = true,         -- Underline problematic code
+  update_in_insert = false, -- Update diagnostics while typing
+  severity_sort = true,     -- Sort diagnostics by severity (e.g., errors first)
+})
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -8,6 +17,40 @@ vim.keymap.set('i', 'kj', '<Esc>', { noremap = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+-- Format the entire buffer
+vim.keymap.set('n', '<leader>cf', function()
+  vim.lsp.buf.format({ async = true })
+end, { desc = 'Format buffer' })
+
+-- In visual mode, format only the selected lines
+vim.keymap.set('v', '<leader>cf', function()
+  vim.lsp.buf.format({ async = true })
+end, { desc = 'Format selection' })
+
+vim.lsp.config('lua_ls', {
+  cmd = { 'lua-language-server' },
+  filetypes = { 'lua' },
+  root_markers = { '.git', 'init.lua' },
+  settings = {
+    Lua = {
+      diagnostics = {
+        -- Prevent annoying 'undefined global vim' warnings
+        globals = { 'vim' },
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+    },
+  },
+})
+vim.lsp.config['nixd'] = {
+  cmd = { 'nixd' },
+  filetypes = { 'nix' },
+  root_markers = { 'home.nix', 'flake.nix', 'shell.nix', '.git' },
+  single_file_support = true,
+}
+vim.lsp.enable({ 'lua_ls', 'nixd' })
 
 vim.o.breakindent = true
 vim.o.clipboard = 'unnamedplus'

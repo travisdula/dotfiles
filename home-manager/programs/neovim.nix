@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   programs.neovim = {
     enable = true;
@@ -7,6 +7,10 @@
     vimAlias = true;
     vimdiffAlias = true;
     extraLuaConfig = builtins.readFile ./init.lua;
-    extraPackages = with pkgs; [];
+    extraPackages = with pkgs; [
+      lua-language-server
+      nixd
+      nixfmt
+    ];
   };
 }

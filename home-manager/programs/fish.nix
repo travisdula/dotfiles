@@ -1,7 +1,7 @@
-{config, lib, pkgs, ...}:
+{ ... }:
 {
   programs.fish = {
-  # what to do with these?
+    # what to do with these?
     #  # cleaning home directory
     #set XDG_CONFIG_HOME $HOME/.config
     #set XDG_CACHE_HOME $HOME/.cache

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 {
   # look into https://github.com/TLATER/dotfiles/blob/b39af91fbd13d338559a05d69f56c5a97f8c905d/home-config/config/graphical-applications/firefox.nix
   programs.firefox = {
@@ -53,7 +53,7 @@
         "toolkit.telemetry.shutdownPingSender.enabled" = false;
         "toolkit.telemetry.unified" = false;
         "toolkit.telemetry.updatePing.enabled" = false;
-        
+
         # As well as Firefox 'experiments'
         "experiments.activeExperiment" = false;
         "experiments.enabled" = false;

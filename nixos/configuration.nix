@@ -2,20 +2,18 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
-  imports =
-    [ 
-      <home-manager/nixos>
-      <nixos-hardware/lenovo/thinkpad/x1/6th-gen>
-      ./hardware-configuration.nix # Include the results of the hardware scan.
-    ];
-  
+  imports = [
+    <home-manager/nixos>
+    <nixos-hardware/lenovo/thinkpad/x1/6th-gen>
+    ./hardware-configuration.nix # Include the results of the hardware scan.
+  ];
 
   boot.loader = {
     grub = {
       enable = true;
-      devices = ["nodev"];
+      devices = [ "nodev" ];
       efiSupport = true;
       useOSProber = true;
     };
@@ -37,7 +35,6 @@
     # proxy.default = "http://user:password@proxy:port/";
     # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   };
-
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
@@ -104,7 +101,7 @@
       enable = true;
       mouse.accelProfile = "flat";
       touchpad = {
-        accelProfile = "adaptive"; 
+        accelProfile = "adaptive";
         disableWhileTyping = true;
       };
     };
@@ -115,11 +112,11 @@
       enable = true;
       brightness = {
         day = "1";
-	night = "0.8";
+        night = "0.8";
       };
       temperature = {
         day = 5500;
-	night = 3700;
+        night = 3700;
       };
     };
 
@@ -153,7 +150,6 @@
       "networkmanager"
       "wheel"
     ];
-    packages = with pkgs; [];
   };
 
   home-manager.users.travis = import /home/travis/dotfiles/home-manager/home.nix;
@@ -173,7 +169,7 @@
   nixpkgs.config.allowUnfree = true;
 
   environment = {
-    sessionVariables = rec {
+    sessionVariables = {
       GTK_THEME = "Nordic"; # Adwaita:dark if don't want Nord
     };
 
@@ -239,7 +235,10 @@
     };
     settings = {
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
     };
   };
 }

@@ -14,4 +14,4 @@ For GitHub use, generate and link a new SSH key.
 
 ## Credits
 
-- The same goes for my Firefox config, which is mostly copied from [noib3](https://github.com/noib3/macOS-dotfiles/tree/master/firefox)
+My Firefox config is mostly copied from [noib3](https://github.com/noib3/macOS-dotfiles/tree/master/firefox) and [Shen Zhou Hong](https://shen.hong.io/nixos-for-philosophy-installing-firefox-latex-vscodium/)

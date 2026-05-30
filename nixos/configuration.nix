@@ -198,7 +198,6 @@
       ripgrep
       signal-desktop
       spotify
-      stow
       swi-prolog
       sxiv
       texlive.combined.scheme-small

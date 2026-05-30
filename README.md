@@ -6,8 +6,6 @@ The dotfiles for my NixOS system
 
 Install Home Manager.
 
-Clone this repo into your home directory, cd into the dotfiles directory that was created, and use GNU Stow on the directory `qtile` to create the symlink in the proper place (not for `home-manager` or `nixos`).
-
 The `nixos` folder requires `nixos/configuration.nix` to be linked to `/etc/nixos/configuration.nix`.
 
 Some things, such as Firefox and NixOS, have my username hardcoded, so you'll need to change that to use this.

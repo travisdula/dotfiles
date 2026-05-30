@@ -129,12 +129,10 @@ keys = [
         desc="Toggle between split and unsplit sides of stack",
     ),
     Key([MOD], "Return", lazy.spawn(TERMINAL), desc="Launch terminal"),
-    # Toggle between different layouts as defined below
     Key([MOD], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([MOD], "q", lazy.window.kill(), desc="Kill focused window"),
     Key([MOD, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([MOD, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    # Key([MOD], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key(
         [MOD],
         "space",
@@ -158,41 +156,9 @@ keys = [
     Key([], "XF86MonBrightnessUp", lazy.spawn(BRIGHTNESS_UP)),
     Key([], "XF86Bluetooth", lazy.spawn(BLUETOOTH)),
     Key([], "XF86Tools", lazy.spawn(SETTINGS)),
-    #Key(XF86WLAN             , lazy.spawn()),
-    #Key(XF86Display          , lazy.spawn(DISPLAY)),
-    #XF86Favorites
-
-    # run or raise
-    # Key([MOD], "b", lazy.function(run_or_raise(BROWSER, BROWSER)), desc="run or raise (b)rowser"),
-    # Key([MOD], "m", lazy.function(run_or_raise(MUSIC, MUSIC)), desc="run or raise (m)usic"),
-    # Key([MOD], "r", lazy.function(run_or_raise(READER, "pdfopen")), desc="run or raise (m)usic"),
-    # Key([MOD], "c", lazy.function(run_or_raise(CHAT, CHAT)), desc="run or raise (c)hat"),
 ]
 
 groups = [Group(i) for i in "123456789"]
-# groups = [Group(name=str(i), layout="max", label=x) for i,x in enumerate(group_icons, start=1)]
-# groups = [
-#     Group( # workspace
-#         name="1",
-#     ),
-#     Group( # browser
-#         name="2",
-#     ),
-#     Group( # browser
-#         name="3",
-#     ),
-#     Group( # chat
-#         name="c",
-#         matches=[Match(wm_class=["discord"])],
-#         label="",
-#     ),
-#     Group( # music
-#         name="m",
-#         matches=[Match(wm_class=["spotify"])],
-#         label="",
-#     ),
-# ]
-
 
 for group in groups:
     keys.extend(
@@ -226,8 +192,6 @@ layout_defaults = {
 }
 layouts = [
     layout.Columns(**layout_defaults),
-    # layout.Tile(**layout_defaults),
-    # layout.MonadThreeCol(**layout_defaults),
     layout.Max(margin=([50]*4)),
 ]
 
@@ -279,7 +243,6 @@ screens = [
                 widget.Notify(default_timeout=45),
                 widget.Systray(),
                 widget.Spacer(length=10),
-                #
                 widget.Mpris2(
                     max_chars=35,
                     display_metadata=["xesam:title", "xesam:artist"],
@@ -293,7 +256,10 @@ screens = [
                     fmt="🔉 {} |",
                     **alpha_colors
                 ),
-                #widget.Bluetooth(**alpha_colors),
+                widget.Bluetooth(
+                    fmt="🔵🦷 {} |",
+                    **alpha_coars
+                ),
                 widget.Backlight(
                     fmt="💡 {} |",
                     change_command="brightnessctl set {0}%",
@@ -317,7 +283,6 @@ screens = [
                     },
                     **alpha_colors,
                 ),
-                #widget.Wttr(**alpha_colors),
                 widget.Battery(
                     format="🔋 {char} {percent:02.0%} |", **alpha_colors,
                     show_short_text=False,

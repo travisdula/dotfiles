@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   programs.neovim = {
     enable = true;
@@ -6,11 +6,14 @@
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
-    extraLuaConfig = builtins.readFile ./init.lua;
     extraPackages = with pkgs; [
       lua-language-server
       nixd
       nixfmt
     ];
+  };
+  xdg.configFile."nvim" = {
+    source = config.lib.file.mkOutOfStoreSymlink ./nvim;
+    recursive = true;
   };
 }

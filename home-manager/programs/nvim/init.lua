@@ -27,29 +27,6 @@ vim.keymap.set('v', '<leader>cf', function()
   vim.lsp.buf.format({ async = true })
 end, { desc = 'Format selection' })
 
-vim.lsp.config('lua_ls', {
-  cmd = { 'lua-language-server' },
-  filetypes = { 'lua' },
-  root_markers = { '.git', 'init.lua' },
-  settings = {
-    Lua = {
-      diagnostics = {
-        -- Prevent annoying 'undefined global vim' warnings
-        globals = { 'vim' },
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-    },
-  },
-})
-vim.lsp.config['nixd'] = {
-  cmd = { 'nixd' },
-  filetypes = { 'nix' },
-  root_markers = { 'home.nix', 'flake.nix', 'shell.nix', '.git' },
-  single_file_support = true,
-}
 vim.lsp.enable({ 'lua_ls', 'nixd' })
 
 vim.o.breakindent = true

@@ -21,6 +21,7 @@ vim.o.tabstop = 4
 vim.o.termguicolors = true
 vim.o.undofile = true
 vim.o.updatetime = 250
+vim.o.wrap = true
 
 vim.wo.number = true
 vim.wo.relativenumber = true

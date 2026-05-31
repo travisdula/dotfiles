@@ -152,7 +152,10 @@
     ];
   };
 
-  home-manager.users.travis = import /home/travis/dotfiles/home-manager/home.nix;
+  home-manager = {
+    users.travis = import /home/travis/dotfiles/home-manager/home.nix;
+    backupFileExtension = ".bak";
+  };
   programs = {
     fish.enable = true;
   };

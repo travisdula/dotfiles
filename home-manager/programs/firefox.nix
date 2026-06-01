@@ -1,8 +1,9 @@
-{ ... }:
+{ config, ... }:
 {
   # look into https://github.com/TLATER/dotfiles/blob/b39af91fbd13d338559a05d69f56c5a97f8c905d/home-config/config/graphical-applications/firefox.nix
   programs.firefox = {
     enable = true;
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
     profiles.travis = {
       userChrome = builtins.readFile ./firefoxUserChrome.css;
       # needs NUR to work

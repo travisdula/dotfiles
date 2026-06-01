@@ -30,7 +30,8 @@
     };
     interactiveShellInit = ''
       fish_config theme choose Nord
-      fish_vi_key_bindings
+      fish_config prompt choose arrow
+      set -g fish_vi_key_bindings
       set fish_greeting
     '';
   };

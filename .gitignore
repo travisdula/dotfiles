@@ -1,5 +1,0 @@
-nvim/.config/nvim/plugged/*
-.netrwhist
-nvim/.config/nvim/spell/
-__pycache__
-packer_compiled.lua

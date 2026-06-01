@@ -2,11 +2,11 @@ vim.cmd [[colorscheme nord]]
 vim.cmd [[:hi statusline guibg=NONE]]
 
 vim.diagnostic.config({
-    virtual_text = true,    -- Turn virtual text on/off
-    signs = true,           -- Show icons in the sign column
-    underline = true,       -- Underline problematic code
+    virtual_text = true,      -- Turn virtual text on/off
+    signs = true,             -- Show icons in the sign column
+    underline = true,         -- Underline problematic code
     update_in_insert = false, -- Update diagnostics while typing
-    severity_sort = true,   -- Sort diagnostics by severity (e.g., errors first)
+    severity_sort = true,     -- Sort diagnostics by severity (e.g., errors first)
 })
 
 vim.g.mapleader = ' '
@@ -58,6 +58,13 @@ local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>fF', builtin.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>ff', builtin.git_files, { desc = 'Telescope find git' })
-vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, { desc = 'Telescope find git' })
+vim.keymap.set(
+    'n',
+    '<leader>fs',
+    function()
+        builtin.lsp_document_symbols({ ignore_symbols = 'string' })
+    end,
+    { desc = 'Telescope find git' }
+)
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })

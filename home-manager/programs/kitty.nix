@@ -8,6 +8,6 @@
       size = 16;
     };
     extraConfig = builtins.readFile ./kitty.conf;
-    themeFile = "Nord";
+    themeFile = "Catppuccin-Mocha";
   };
 }

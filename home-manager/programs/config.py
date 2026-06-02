@@ -85,6 +85,27 @@ NORD = {
     15: "#B48EAD",
 }
 
+CATPPUCCIN_MOCHA = {
+    0: "#1e1e2e", 
+    1: "#252538",
+    2: "#313244",
+    3: "#45475a",
+    4: "#cdd6f4",
+    5: "#b4befe",
+    6: "#f5e0dc",
+    7: "#94e2d5",
+    8: "#89dceb",
+    9: "#74c7ec",
+    10: "#89b4fa",
+    11: "#f38ba8",
+    12: "#fab387",
+    13: "#f9e2af",
+    14: "#a6e3a1",
+    15: "#cba6f7",
+}
+
+THEME = CATPPUCCIN_MOCHA
+
 keys = [
     Key([MOD], "f", lazy.window.toggle_floating(), desc="Toggle floating"),
     # A list of available commands that can be bound to keys can be found
@@ -138,10 +159,10 @@ keys = [
         "space",
         lazy.run_extension(
             extension.DmenuRun(
-                background=NORD[0],
-                foreground=NORD[15],
-                selected_background=NORD[15],
-                selected_foreground=NORD[0],
+                background=THEME[0],
+                foreground=THEME[15],
+                selected_background=THEME[15],
+                selected_foreground=THEME[0],
             )
         ),
         desc="Spawn a command using a prompt widget",
@@ -184,8 +205,8 @@ for group in groups:
         ]
     )
 layout_defaults = {
-    "border_focus": NORD[15],
-    "border_normal": NORD[10],
+    "border_focus": THEME[15],
+    "border_normal": THEME[10],
     "border_on_single": False,
     "margin_on_single": 0,
     "margin": 5,
@@ -199,18 +220,18 @@ widget_defaults = dict(
     font="mono",
     fontsize=18,
     padding=3,
-    background=NORD[0],
-    foreground=NORD[15],
+    background=THEME[0],
+    foreground=THEME[15],
 )
 extension_defaults = widget_defaults.copy()
 
 alpha_colors = {
-    "foreground": NORD[0],
-    "background": NORD[15],
+    "foreground": THEME[0],
+    "background": THEME[15],
 }
 beta_colors = {
-    "foreground": NORD[0],
-    "background": NORD[8],
+    "foreground": THEME[0],
+    "background": THEME[8],
 }
 
 screens = [
@@ -218,22 +239,22 @@ screens = [
         top=bar.Bar(
             [
                 widget.GroupBox(
-                    active=NORD[15],
-                    inactive=NORD[10],
-                    this_current_screen_border=NORD[15],
-                    block_highlight_text_color=NORD[0], # for use with "block"
+                    active=THEME[15],
+                    inactive=THEME[10],
+                    this_current_screen_border=THEME[15],
+                    block_highlight_text_color=THEME[0], # for use with "block"
                     highlight_method="block",
-                    #highlight_color=[NORD[0], NORD[0]], # for use with "line"
+                    #highlight_color=[THEME[0], THEME[0]], # for use with "line"
                     center_aligned=True,
                     #hide_unused=True,
                     rounded=False,
                     # fontsize=22, # needed for nerd font icons
                 ),
                 widget.TaskList(
-                    foreground=NORD[0],
-                    border=NORD[15],
+                    foreground=THEME[0],
+                    border=THEME[15],
                     fontsize=18,
-                    unfocused_border=NORD[10],
+                    unfocused_border=THEME[10],
                     highlight_method="block",
                     max_title_width=300,
                     title_width_method="uniform",
@@ -331,8 +352,8 @@ floating_layout = layout.Floating(
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
     ],
-    border_focus=NORD[13],
-    border_normal=NORD[14],
+    border_focus=THEME[13],
+    border_normal=THEME[14],
 )
 auto_fullscreen = True
 focus_on_window_activation = "smart"

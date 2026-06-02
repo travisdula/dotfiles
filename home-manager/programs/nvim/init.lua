@@ -1,5 +1,10 @@
-vim.cmd [[colorscheme nord]]
-vim.cmd [[:hi statusline guibg=NONE]]
+vim.cmd [[
+    colorscheme catppuccin
+    highlight Normal guibg=none
+    highlight NonText guibg=none
+    highlight Normal ctermbg=none
+    highlight NonText ctermbg=none
+]]
 
 vim.diagnostic.config({
     virtual_text = true,      -- Turn virtual text on/off

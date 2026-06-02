@@ -29,7 +29,7 @@
       z = "zathura";
     };
     interactiveShellInit = ''
-      fish_config theme choose Nord
+      fish_config theme choose catppuccin-mocha
       fish_config prompt choose arrow
       set -g fish_vi_key_bindings
       set fish_greeting

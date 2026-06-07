@@ -8,6 +8,10 @@ Install Home Manager.
 
 The `nixos` folder requires `nixos/configuration.nix` to be linked to `/etc/nixos/configuration.nix`.
 
+```sh
+# ln -s /home/travis/dotfiles/nixos/configuration.nix /etc/nixos/configuration.nix
+```
+
 Some things, such as Firefox and NixOS, have my username hardcoded, so you'll need to change that to use this.
 
 For GitHub use, generate and link a new SSH key.

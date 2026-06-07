@@ -6,7 +6,7 @@
   imports = [
     <home-manager/nixos>
     <nixos-hardware/lenovo/thinkpad/x1/6th-gen>
-    ./hardware-configuration.nix
+    /etc/nixos/hardware-configuration.nix
   ];
 
   boot.loader = {
@@ -144,8 +144,10 @@
 
     pipewire = {
       enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
       pulse.enable = true;
     };
 

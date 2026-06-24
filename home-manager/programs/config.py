@@ -28,20 +28,6 @@ from libqtile import bar, extension, layout, qtile, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 
-# TODO make this cycle
-def run_or_raise(app, wm_class):
-    def __inner(qtile):
-        for window in qtile.windows_map.values():
-            if hasattr(window, "cmd_match") and window.cmd_match(
-                Match(wm_class=wm_class)
-            ):
-                qtile.current_screen.set_group(window.group)
-                window.focus(False)
-                return
-        qtile.cmd_spawn(app)
-
-    return __inner
-
 
 MOD = "mod4"
 
@@ -65,25 +51,6 @@ MIC_MUTE = "amixer set Capture toggle"
 BRIGHTNESS_DOWN = "brightnessctl set 5%-"
 BRIGHTNESS_UP = "brightnessctl set 5%+"
 
-NORD = {
-    0: "#2E3440",
-    1: "#3B4252",
-    2: "#434C5E",
-    3: "#4C566A",
-    3: "#616E88",
-    4: "#D8DEE9",
-    5: "#E5E9F0",
-    6: "#ECEFF4",
-    7: "#8FBCBB",
-    8: "#88C0D0",
-    9: "#81A1C1",
-    10: "#5E81AC",
-    11: "#BF616A",
-    12: "#D08770",
-    13: "#EBCB8B",
-    14: "#A3BE8C",
-    15: "#B48EAD",
-}
 
 CATPPUCCIN_MOCHA = {
     0: "#1e1e2e", 
@@ -198,10 +165,6 @@ for group in groups:
                 lazy.window.togroup(group.name, switch_group=True),
                 desc="Switch to & move focused window to group {}".format(group.name),
             ),
-            # Or, use below if you prefer not to switch to that group.
-            # # MOD1 + shift + letter of group = move focused window to group
-            # Key([MOD, "shift"], i.name, lazy.window.togroup(i.name),
-            #     desc="move focused window to group {}".format(i.name)),
         ]
     )
 layout_defaults = {
@@ -213,7 +176,7 @@ layout_defaults = {
 }
 layouts = [
     layout.Columns(**layout_defaults),
-    layout.Max(margin=([50]*4)),
+    layout.Max(margin=50),
 ]
 
 widget_defaults = dict(
@@ -244,11 +207,7 @@ screens = [
                     this_current_screen_border=THEME[15],
                     block_highlight_text_color=THEME[0], # for use with "block"
                     highlight_method="block",
-                    #highlight_color=[THEME[0], THEME[0]], # for use with "line"
-                    center_aligned=True,
-                    #hide_unused=True,
                     rounded=False,
-                    # fontsize=22, # needed for nerd font icons
                 ),
                 widget.TaskList(
                     foreground=THEME[0],
@@ -364,7 +323,5 @@ reconfigure_screens = True
 auto_minimize = True
 
 # When using the Wayland backend, this can be used to configure input devices.
-wl_input_rules = None
-
 # change to LG3D if having issues with Java UI programs
 wmname = "Qtile"

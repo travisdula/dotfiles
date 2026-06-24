@@ -19,9 +19,9 @@
       gc = "git commit";
       gp = "git push";
       gs = "git status";
-      l = "exa --icons";
-      ll = "exa -hal --icons";
-      llt = "exa -hal --tree --icons";
+      l = "eza --icons";
+      ll = "eza -hal --icons";
+      llt = "eza -hal --tree --icons";
       n = "nvim";
       p = "python";
       pmix = "pulsemixer";

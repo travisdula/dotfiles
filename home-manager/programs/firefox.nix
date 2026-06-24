@@ -22,7 +22,7 @@
         "browser.ctrlTab.previews" = true;
         "browser.ctrlTab.sortByRecentlyUsed" = true; # enables previews
 
-        "browser.download.dir" = "/home/travis/dl";
+        "browser.download.dir" = "${config.home.homeDirectory}/dl";
 
         "browser.newtabpage.enabled" = false;
         "browser.startup.homepage" = "about:blank";

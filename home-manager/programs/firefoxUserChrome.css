@@ -1,36 +1,31 @@
 /* set font */
 * {
-   font-family: "JetBrains Mono" !important;
-   font-size: 12pt !important; 
+  font-family: "JetBrains Mono" !important;
+  font-size: 12pt !important;
 }
-
- /* tab count in title bar */
-/* #main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar > .toolbar-items {
-  opacity: 0;
-  pointer-events: none;
-}
-*/
 
 /* hide tab bar */
 #main-window:not([tabsintitlebar="true"]) #TabsToolbar {
-    visibility: collapse !important;
+  visibility: collapse !important;
 }
 
-  /* hide TST scroll bar */
+/* hide TST scroll bar */
 .tabbrowser-tabs[treestyletab-mode="vertical"]
   .tabbrowser-arrowscrollbox > scrollbox {
   overflow-y: hidden !important;
 }
-  /* hide TST if only one tab is open */
+
+/* hide TST if only one tab is open */
 #main-window[titlepreface^="[1] "] #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] {
   visibility: collapse !important;
 }
-  /* hide sidebar splitter if only one tab is open */
+
+/* hide sidebar splitter if only one tab is open */
 #main-window[titlepreface^="[1] "] .sidebar-splitter {
-    display: none;
+  display: none;
 }
 
-  /* debloat navbar - remove buttons */
+/* debloat navbar - remove buttons */
 #back-button { display: none; }
 #forward-button { display: none; }
 #reload-button { display: none; }
@@ -48,13 +43,11 @@
 #customizableui-special-spring1,
 #customizableui-special-spring2 { display: none; }
 
-  /* navbar layout */
+/* navbar layout */
 #nav-bar,
 #navigator-toolbox {
   border-width: 0 !important;
 }
-  /* navbar on focus */
-/* https://www.reddit.com/r/FirefoxCSS/comments/hw3tbxs/howing_the_navbar_in_place_of_the_tabbar_when/ */
 
 #nav-bar-customization-target { flex-grow: 1; }
 
@@ -64,7 +57,7 @@
   pointer-events: auto !important;
 }
 
-  /* debloat urlbar */
+/* debloat urlbar */
 #tracking-protection-icon-container,
 #identity-box,
 #reader-mode-button,
@@ -74,14 +67,14 @@
 #star-button-box,
 #urlbar-zoom-button,
 #toolbar-item[id="bookmark-item"],
-#urlbar-go-button, /* Go to arrow button at the end of the urlbar when searching */
+#urlbar-go-button,
 #picture-in-picture-button
 { display: none; }
 
-
 /* Bottom left page loading status or url preview */
 #statuspanel { display: none !important; }
-  /* urlbar layout */
+
+/* urlbar layout */
 #urlbar-container {
   --urlbar-container-height: var(--tab-min-height) !important;
   margin-left: 0 !important;
@@ -127,35 +120,27 @@
   width: 1em !important;
   margin-bottom: 0.2em !important;
 }
- /* remove megabar */
-/* https://github.com/WesleyBranton/Remove-Firefox-Megabar/blob/master/remove_megabar.css */
 
-/* REMOVE MEGABAR START
- * VERSION 1.0.4
- * CODE AT: http://userchrome.wesleybranton.com/megabar
- * RELEASE NOTES: http://userchrome.wesleybranton.com/notes/megabar */
+/* remove megabar */
 @-moz-document url(chrome://browser/content/browser.xhtml) {
-    /* DISABLE EXPANDING START */
-    #urlbar[breakout][breakout-extend] {
-        top: calc((var(--urlbar-toolbar-height) - var(--urlbar-height)) / 2) !important;
-        left: 0 !important;
-        width: 100% !important;
-    }
+  #urlbar[breakout][breakout-extend] {
+    top: calc((var(--urlbar-toolbar-height) - var(--urlbar-height)) / 2) !important;
+    left: 0 !important;
+    width: 100% !important;
+  }
 
-    #urlbar[breakout][breakout-extend] > #urlbar-input-container {
-        height: var(--urlbar-height) !important;
-        padding-block: 0 !important;
-        padding-inline: 0 !important;
-    }
-    /* DISABLE EXPANDING END */
+  #urlbar[breakout][breakout-extend] > #urlbar-input-container {
+    height: var(--urlbar-height) !important;
+    padding-block: 0 !important;
+    padding-inline: 0 !important;
+  }
 }
-/* REMOVE MEGABAR END */
 
- /* debloat sidebar */
+/* debloat sidebar */
 #sidebar-header { display: none !important; }
 #sidebar-search-container { display: none; }
 
- /* sidebar layout*/
+/* sidebar layout */
 .sidebar-placesTreechildren {
   padding-top: 0.3em;
 }

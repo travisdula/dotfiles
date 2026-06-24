@@ -24,7 +24,7 @@
 
   environment = {
     sessionVariables = {
-      GTK_THEME = "Nordic";
+      GTK_THEME = "catppuccin-mocha-mauve-standard";
     };
 
     systemPackages = with pkgs; [
@@ -42,7 +42,7 @@
       libreoffice
       mpv
       nemo
-      nordic # Nord theme
+      (catppuccin-gtk.override { variant = "mocha"; accents = [ "mauve" ]; })
       obsidian
       pandoc
       pavucontrol
